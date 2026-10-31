@@ -60,7 +60,7 @@
   <meta property="og:url" content="https://kamaxibeachresort.com/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&family=Sacramento&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <!-- Sitemap Link -->
@@ -69,30 +69,35 @@
   <style>
     /* ===== DESIGN TOKENS ===== */
     :root {
-      --gold: #C9A96E;
-      --gold-light: #E8D5B0;
-      --gold-dark: #A07840;
-      --deep-teal: #0D3D3A;
-      --teal: #1A5C57;
-      --teal-light: #2E8B84;
-      --sand: #F5EDD8;
-      --sand-dark: #EAD9B8;
+      --gold: #B08D57;
+      --gold-light: #D9BC86;
+      --gold-dark: #8A6A35;
+      --deep-teal: #134E4A;
+      --teal: #134E4A;
+      --teal-light: #134E4A;
+      --sand: #F3EBDD;
+      --sand-dark: #E6DCC8;
       --white: #FFFFFF;
-      --off-white: #FAFAF7;
-      --charcoal: #1C1C1C;
+      --off-white: #FBF7F0;
+      --charcoal: #1F2A2A;
       --gray-700: #4A4A4A;
       --gray-500: #6E6E6E;
       --gray-400: #9A9A9A;
       --gray-200: #E8E8E8;
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans: 'Jost', sans-serif;
-      --font-script: 'Sacramento', cursive;
+      --font-script: 'Jost', sans-serif;
+      --cream: #FBF7F0;
+      --card: #FFFDF9;
+      --line: #E6DCC8;
+      --ink: #1F2A2A;
+      --gold-text: #8A6A35;
       --radius-sm: 6px;
       --radius-md: 12px;
       --radius-lg: 24px;
-      --shadow-sm: 0 2px 12px rgba(0,0,0,0.08);
-      --shadow-md: 0 8px 32px rgba(0,0,0,0.12);
-      --shadow-lg: 0 24px 64px rgba(0,0,0,0.18);
+      --shadow-sm: 0 2px 12px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+      --shadow-lg: 0 4px 16px rgba(0,0,0,0.06);
       --shadow-gold: 0 8px 32px rgba(201,169,110,0.25);
       --transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
       --transition-fast: all 0.2s ease;
@@ -1534,6 +1539,174 @@
     .yoga-cta-text { flex: 1 1 460px; }
     .yoga-cta-text .section-title { font-size: clamp(1.7rem, 3vw, 2.4rem); margin-bottom: 12px; }
     .yoga-cta-text .about-text { margin-bottom: 0; }
+    /* ===== WARM & BALANCED THEME (overrides) ===== */
+    body { background: var(--cream); color: var(--charcoal); }
+    .section-label { font-family: var(--font-sans); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-text); line-height: 1.4; margin-bottom: 10px; }
+    .section-title { font-family: var(--font-serif); font-size: clamp(2rem, 3vw, 2.5rem); font-weight: 600; line-height: 1.2; letter-spacing: 0; color: var(--ink); }
+    .section-title em, .story-content h2 em, .story-content h3 em, .directions-heading em { font-style: italic; font-weight: 500; color: var(--deep-teal); }
+    .section-subtitle { color: var(--gray-500); letter-spacing: 0.14em; }
+    .gold-divider { background: var(--gold); height: 1px; }
+    .about-text, .story-content p, .experience-header-right p, .taxi-header p, .route-detail { font-weight: 400; font-size: 1rem; color: var(--gray-700); line-height: 1.7; }
+    .exp-desc, .about-feature-text p, .pillar-item p, .route-stat, .author-from, .route-from { color: var(--gray-500); }
+
+    /* Buttons: flat */
+    .btn { font-size: 0.85rem; letter-spacing: 0.06em; text-transform: none; }
+    .btn::before { display: none; }
+    .btn-gold, .btn-teal, .taxi-btn, .mobile-menu-book, #scroll-top { background: var(--deep-teal); color: #fff; box-shadow: none; }
+    .btn-gold:hover, .btn-teal:hover, .taxi-btn:hover, .mobile-menu-book:hover { background: #0E3D3A; color: #fff; box-shadow: var(--shadow-sm); }
+    .btn-outline { color: #fff; border-color: rgba(255,255,255,0.8); }
+
+    /* Preloader */
+    #preloader { background: var(--cream); }
+    .preloader-logo { color: var(--deep-teal); font-weight: 600; }
+    .preloader-fill { background: var(--gold); }
+
+    /* Navbar: solid cream */
+    #navbar, #navbar.scrolled { background: var(--cream); backdrop-filter: none; -webkit-backdrop-filter: none; border-bottom: 1px solid var(--line); box-shadow: none; }
+    #navbar.scrolled { box-shadow: var(--shadow-sm); }
+    .nav-logo-main { font-weight: 600; color: var(--deep-teal); }
+    .nav-logo-main strong { color: var(--gold); font-weight: 600; }
+    .nav-links a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; color: var(--ink); }
+    .nav-links a:hover, .nav-links a.active { color: var(--deep-teal); }
+    .nav-phone { color: var(--gray-700); }
+    .nav-phone i { color: var(--gold); }
+    .hamburger span { background: var(--ink); }
+    .mobile-menu { background: var(--cream); }
+    .mobile-menu a { font-weight: 600; color: var(--ink); }
+    .mobile-menu a:hover { color: var(--deep-teal); }
+    .mobile-menu-footer a { color: var(--gray-500); }
+
+    /* Hero + page heroes: flat 30% overlay */
+    .hero-video-overlay, .page-hero-overlay { background: rgba(0,0,0,0.30) !important; }
+    .hero-particles { display: none; }
+    .hero-tagline { font-family: var(--font-serif); font-weight: 600; font-size: clamp(2rem, 4vw, 2.75rem); color: #fff; line-height: 1.2; }
+    .hero-desc { font-weight: 400; color: rgba(255,255,255,0.92); }
+    .hero-badge { background: rgba(0,0,0,0.25); border-color: rgba(255,255,255,0.35); }
+    .hero-badge span { color: #fff; }
+    .page-hero-content h1 { font-weight: 600; font-size: clamp(2.2rem, 4vw, 2.75rem); }
+    .page-hero-content h1 em { color: #fff; font-weight: 500; }
+    .page-hero-content p { color: rgba(255,255,255,0.92); }
+
+    /* Section rhythm: cream / sand, teal only for Rooms + footer */
+    #about, .about-story-section, .tariff-section, #location, .directions-section { background: var(--cream); }
+    #experience, #testimonials, .cta-section, .yoga-cta, .local-taxi-section, .ad-slot { background: var(--sand); }
+    .cta-section { background-image: none !important; }
+
+    /* About (home) */
+    .about-img-main, .about-img-accent, .story-sidebar-img, .directions-map, .location-map-wrap { box-shadow: var(--shadow-sm); border-radius: 10px; }
+    .about-badge-float { background: var(--card); color: var(--ink); border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
+    .about-badge-float .num { font-weight: 600; color: var(--deep-teal); }
+    .about-badge-float .txt { color: var(--gray-500); }
+    .about-feature-icon, .exp-icon, .info-card-icon, .route-icon, .disc-badge-icon { background: var(--sand); border: 1px solid var(--line); }
+    .about-feature-icon i, .exp-icon i, .info-card-icon i, .route-icon i { color: var(--deep-teal); }
+    .exp-card:hover .exp-icon { background: var(--sand); }
+    .about-feature-text h4, .exp-title, .pillar-item h4, .route-name, .info-card p { font-weight: 600; color: var(--ink); }
+
+    /* Rooms: teal section, cream cards */
+    #rooms { background: var(--deep-teal); }
+    #rooms::before { display: none; }
+    #rooms .section-title { color: #fff; }
+    #rooms .section-title em { color: var(--gold-light); }
+    #rooms .section-label { color: var(--gold-light); }
+    #rooms .section-subtitle { color: rgba(255,255,255,0.75); }
+    .room-card, .room-card.featured { background: var(--cream); border: 1px solid var(--line); border-radius: 10px; }
+    .room-card:hover { border-color: var(--gold); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .room-badge { background: var(--deep-teal) !important; color: #fff; }
+    .room-img-overlay { background: none; }
+    .room-type { color: var(--gold-text); font-weight: 500; }
+    .room-name { font-weight: 600; color: var(--ink); }
+    .room-desc { font-size: 0.95rem; color: var(--gray-700); }
+    .amenity-tag, .amenity-tag.breakfast-tag { background: var(--sand); border: 1px solid var(--line); color: var(--deep-teal); }
+    .amenity-tag i { color: var(--gold-text); }
+    .room-footer { border-top-color: var(--line); }
+    .room-book-btn { background: var(--deep-teal); border-color: var(--deep-teal); color: #fff; font-size: 0.8rem; letter-spacing: 0.06em; }
+    .room-book-btn:hover { background: #0E3D3A; border-color: #0E3D3A; color: #fff; }
+
+    /* Experience */
+    .exp-card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; box-shadow: none; }
+    .exp-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); border-color: var(--gold); }
+
+    /* Dining: cream panel */
+    .dining-content { background: var(--cream); }
+    .dining-content .section-title { color: var(--ink); }
+    .dining-content .section-subtitle { color: var(--gray-500); }
+    .dining-text { color: var(--gray-700); font-weight: 400; }
+    .menu-item { background: var(--card); border-color: var(--line); }
+    .menu-item i { color: var(--gold-text); }
+    .menu-item span { color: var(--ink); }
+    .dining-hours .label { color: var(--gray-500); }
+    .dining-hours .time { color: var(--deep-teal); font-weight: 600; }
+    .breakfast-showcase { background: var(--sand); border-color: var(--line); }
+    .breakfast-showcase::before { background: var(--gold); }
+    .breakfast-pill { background: var(--deep-teal); }
+
+    /* Testimonials: sand */
+    #testimonials::before { color: rgba(19,78,74,0.05); }
+    #testimonials .section-title { color: var(--ink); }
+    .testimonial-card, .testimonial-card:hover { background: var(--card); border: 1px solid var(--line); border-radius: 10px; }
+    .testimonial-text { color: var(--gray-700); font-weight: 500; }
+    .author-name { color: var(--ink); }
+    .slider-btn { border-color: var(--line); color: var(--deep-teal); }
+    .slider-btn:hover { background: var(--deep-teal); border-color: var(--deep-teal); color: #fff; }
+    .slider-dot { background: rgba(19,78,74,0.2); }
+    .slider-dot.active { background: var(--deep-teal); }
+
+    /* Location + CTA */
+    .info-card { background: var(--card); border-color: var(--line); border-radius: 10px; }
+    .info-card h4 { color: var(--gray-500); }
+    .cta-title { color: var(--ink); font-weight: 600; font-size: clamp(2rem, 3.5vw, 2.75rem); }
+    .cta-title em { color: var(--deep-teal); font-weight: 500; }
+    .cta-sub { color: var(--gray-700); font-weight: 400; }
+    .cta-section .btn-outline { color: var(--deep-teal); border-color: var(--deep-teal); }
+    .cta-section .btn-outline:hover { background: var(--deep-teal); color: #fff; }
+    .cta-phone-block .label { color: var(--gray-500); }
+    .cta-phone-numbers a { color: var(--deep-teal); font-weight: 600; }
+    .cta-phone-numbers a:hover { color: var(--ink); }
+
+    /* Footer: teal */
+    #footer { background: var(--deep-teal); }
+    .footer-grid { border-bottom-color: rgba(255,255,255,0.15); }
+    .footer-brand-desc, .footer-links a, .footer-contact-item span, .footer-contact-item a { color: rgba(255,255,255,0.75); }
+    .footer-links a:hover, .footer-contact-item a:hover { color: #fff; }
+    .footer-col h4 { color: #fff; }
+    .footer-links a::before { background: var(--gold-light); }
+    .footer-contact-item i { color: var(--gold-light); }
+    .social-link { border-color: rgba(255,255,255,0.3); color: rgba(255,255,255,0.85); }
+    .social-link:hover { background: #fff; border-color: #fff; color: var(--deep-teal); }
+    .footer-bottom p { color: rgba(255,255,255,0.7); }
+    .footer-bottom a { color: var(--gold-light); }
+    #footer .nav-logo-main { color: #fff; }
+    #footer .nav-logo-main strong { color: var(--gold-light); }
+
+    /* About Us page */
+    .founder-card, .promise-box { background: var(--sand); color: var(--ink); border: 1px solid var(--line); border-radius: 10px; }
+    .founder-card h3, .promise-box h3 { color: var(--ink); font-weight: 600; }
+    .founder-card p { color: var(--gray-500); }
+    .promise-box p { color: var(--gray-700); }
+    .pillar-item { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 10px; box-shadow: none; }
+    .story-content h2, .story-content h3, .directions-heading, .yoga-content h2 { font-weight: 600; color: var(--ink); }
+
+    /* Directions page */
+    .route-card, .taxi-card { background: var(--card); border-color: var(--line); border-radius: 10px; box-shadow: none; }
+    .taxi-card-header { background: var(--sand) !important; color: var(--ink); border-bottom: 1px solid var(--line); }
+    .taxi-name { color: var(--ink); font-weight: 600; }
+    .taxi-type { color: var(--gray-500); }
+    .address-note { background: var(--sand); }
+    .local-taxi-content h2 { color: var(--ink); font-weight: 600; }
+    .local-taxi-content h2 em { color: var(--deep-teal); }
+    .local-taxi-content p, .tip-item p { color: var(--gray-700); }
+    .local-contact-item, .travel-tips-box { background: var(--card); border: 1px solid var(--line); }
+    .local-contact-icon { background: var(--deep-teal); }
+    .local-contact-name { color: var(--gray-500); }
+    .local-contact-num, .local-contact-num a { color: var(--ink); font-weight: 600; }
+    .travel-tips-box h3 { color: var(--ink); font-weight: 600; }
+
+    /* Terms page */
+    .term-number { background: var(--deep-teal); }
+    .term-title, .terms-hl-title { font-weight: 600; color: var(--ink); }
+    .terms-cta-card { background: var(--sand); color: var(--ink); border: 1px solid var(--line); }
+    .terms-cta-card h3, .terms-cta-card h2 { color: var(--ink); }
+    .terms-cta-card p { color: var(--gray-700); }
   </style>
 </head>
 <body>
@@ -1808,7 +1981,7 @@
   <section id="dining">
     <div class="dining-grid">
       <div class="dining-content reveal-right">
-        <span class="section-subtitle" style="color:rgba(255,255,255,0.5)">In-House Restaurant &amp; Bar</span>
+        <span class="section-subtitle" style="color:var(--gray-500)">In-House Restaurant &amp; Bar</span>
         <span class="section-label">Kitchen &amp; Dining</span>
         <h2 class="section-title" style="color:var(--white)">Delicious Food,<br><em>Ocean Fresh</em></h2>
         <div class="gold-divider"></div>
@@ -2017,7 +2190,7 @@
   <section id="testimonials">
     <div class="container">
       <div class="testimonials-header reveal">
-        <span class="section-subtitle" style="color:rgba(255,255,255,0.5)">Guest Reviews</span>
+        <span class="section-subtitle" style="color:var(--gray-500)">Guest Reviews</span>
         <span class="section-label">What Our Guests Say</span>
         <h2 class="section-title" style="color:var(--white)">Stories from Our <em>Happy Guests</em></h2>
         <div class="gold-divider center"></div>
@@ -2471,7 +2644,7 @@
               <div class="local-contact-icon"><i class="fas fa-train" aria-hidden="true"></i></div>
               <div>
                 <span class="local-contact-name">Nearest Railway Station</span>
-                <div class="local-contact-num" style="font-size:0.92rem;font-family:var(--font-sans);color:rgba(255,255,255,0.72);">Canacona (Chaudi) — approx. 8 km away</div>
+                <div class="local-contact-num" style="font-size:0.92rem;font-family:var(--font-sans);color:var(--gray-700);">Canacona (Chaudi) — approx. 8 km away</div>
               </div>
             </div>
           </div>
@@ -2958,7 +3131,7 @@
         </div>
         <div class="terms-cta-btns">
           <a href="https://wa.me/919270318818?text=Hi%2C+I+have+a+question+regarding+the+Terms+%26+Cancellation+Policy+at+Kamakshi+Beach+Resort." class="btn btn-gold" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i>Chat on WhatsApp</a>
-          <a href="tel:+919270318818" class="btn btn-outline" style="color:var(--white);border-color:rgba(255,255,255,0.4);"><i class="fas fa-phone-alt" aria-hidden="true"></i>+91 92703 18818</a>
+          <a href="tel:+919270318818" class="btn btn-outline" style="color:var(--deep-teal);border-color:var(--deep-teal);"><i class="fas fa-phone-alt" aria-hidden="true"></i>+91 92703 18818</a>
         </div>
       </div>
 
