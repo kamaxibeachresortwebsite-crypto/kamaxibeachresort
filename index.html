@@ -1526,6 +1526,14 @@
       .term-card-title-group { flex-direction: row; }
       .terms-cta-card { padding: 28px 22px; }
     }
+    /* ===== Content-change layout tweaks ===== */
+    .dining-grid { grid-template-columns: 1fr; }
+    .dining-content { padding-left: max(24px, calc((100% - 1180px) / 2)); padding-right: max(24px, calc((100% - 1180px) / 2)); }
+    .yoga-cta { padding: 72px 0; background: var(--sand); }
+    .yoga-cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+    .yoga-cta-text { flex: 1 1 460px; }
+    .yoga-cta-text .section-title { font-size: clamp(1.7rem, 3vw, 2.4rem); margin-bottom: 12px; }
+    .yoga-cta-text .about-text { margin-bottom: 0; }
   </style>
 </head>
 <body>
@@ -1547,13 +1555,10 @@
       <ul class="nav-links" role="menubar">
         <li role="none"><a role="menuitem" onclick="showPage('home');scrollToSection('hero')">Home</a></li>
         <li role="none"><a role="menuitem" onclick="showPage('home');scrollToSection('rooms')">Rooms</a></li>
-        <li role="none"><a role="menuitem" onclick="showPage('home');scrollToSection('experience')">Experiences</a></li>
-        <li role="none"><a role="menuitem" onclick="showPage('home');scrollToSection('dining')">Dining</a></li>
+        <!-- TODO: Gallery section was removed per client feedback; confirm where this link should point -->
         <li role="none"><a role="menuitem" onclick="showPage('home');scrollToSection('gallery')">Gallery</a></li>
         <li role="none"><a role="menuitem" onclick="showPage('about')">About Us</a></li>
-        <li role="none"><a role="menuitem" onclick="showPage('tariff')">Season Tariff Card</a></li>
         <li role="none"><a role="menuitem" onclick="showPage('directions')">Directions</a></li>
-        <li role="none"><a role="menuitem" onclick="showPage('terms')">Terms &amp; Policy</a></li>
       </ul>
       <div class="nav-cta">
         <a href="tel:+919270318818" class="nav-phone" aria-label="Call us"><i class="fas fa-phone-alt" aria-hidden="true"></i>+91 92703 18818</a>
@@ -1570,13 +1575,9 @@
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
   <a onclick="showPage('home');closeMobileMenu()">Home</a>
   <a onclick="showPage('home');scrollToSection('rooms');closeMobileMenu()">Rooms</a>
-  <a onclick="showPage('home');scrollToSection('experience');closeMobileMenu()">Experiences</a>
-  <a onclick="showPage('home');scrollToSection('dining');closeMobileMenu()">Dining</a>
   <a onclick="showPage('home');scrollToSection('gallery');closeMobileMenu()">Gallery</a>
   <a onclick="showPage('about');closeMobileMenu()">About Us</a>
-  <a onclick="showPage('tariff');closeMobileMenu()">Season Tariff Card</a>
   <a onclick="showPage('directions');closeMobileMenu()">Directions</a>
-  <a onclick="showPage('terms');closeMobileMenu()">Terms &amp; Policy</a>
   <a class="mobile-menu-book" href="https://wa.me/919270318818" target="_blank" rel="noopener" aria-label="Book now via WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i>Book Now</a>
   <div class="mobile-menu-footer">
     <a href="https://wa.me/919270318818" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
@@ -1604,107 +1605,17 @@
         <span>Beachfront Paradise &nbsp;·&nbsp; Polem Beach &nbsp;·&nbsp; South Goa</span>
         <i class="fas fa-star" aria-hidden="true"></i>
       </div>
-      <span class="hero-tagline">Welcome to</span>
-      <h1 class="hero-title">Paradise<br><em>Awaits You</em></h1>
+      <span class="hero-tagline">Welcome to Kamaxi Beach Resort</span>
       <p class="hero-desc">Feel the tropical breeze, hear the waves, and let the peaceful serenity of Polem Beach — South Goa's most pristine shore — wash all your worries away.</p>
       <div class="hero-actions">
-        <a onclick="scrollToSection('rooms')" class="btn btn-gold" style="cursor:pointer"><i class="fas fa-bed" aria-hidden="true"></i>Explore Rooms</a>
-        <a href="https://wa.me/919270318818" class="btn btn-outline" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i>Quick Booking</a>
+        <a href="https://wa.me/919270318818" class="btn btn-outline" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i>Quick book</a>
       </div>
     </div>
     <div class="scroll-indicator" aria-hidden="true">
       <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
       <span>Scroll</span>
     </div>
-    <div class="hero-stats">
-      <div class="hero-stats-inner container">
-        <div class="stat-item"><span class="stat-number" data-target="15" data-suffix="+">15+</span><span class="stat-label">Years of Hospitality</span></div>
-        <div class="stat-item"><span class="stat-number" data-target="1000" data-suffix="+">1000+</span><span class="stat-label">Happy Guests</span></div>
-        <div class="stat-item"><span class="stat-number" data-target="4">4</span><span class="stat-label">Room Categories</span></div>
-        <div class="stat-item"><span class="stat-number">4.8★</span><span class="stat-label">Guest Rating</span></div>
-      </div>
-    </div>
   </section>
-
-  <!-- CHECK-IN / CHECK-OUT BAR -->
-  <div class="checkinout-bar" role="complementary" aria-label="Stay information">
-    <div class="container">
-      <div class="checkinout-inner">
-        <div class="checkinout-item">
-          <div class="checkinout-icon"><i class="fas fa-clock" aria-hidden="true"></i></div>
-          <div><span class="checkinout-label">Check-In Time</span><span class="checkinout-time">12:00 PM</span></div>
-        </div>
-        <div class="checkinout-sep" aria-hidden="true"></div>
-        <div class="checkinout-item">
-          <div class="checkinout-icon"><i class="fas fa-door-open" aria-hidden="true"></i></div>
-          <div><span class="checkinout-label">Check-Out Time</span><span class="checkinout-time">10:00 AM</span></div>
-        </div>
-        <div class="checkinout-sep" aria-hidden="true"></div>
-        <div class="checkinout-item">
-          <div class="checkinout-icon"><i class="fas fa-id-card" aria-hidden="true"></i></div>
-          <div><span class="checkinout-label">ID Required</span><span class="checkinout-time" style="font-size:1rem;">Govt. Photo ID</span></div>
-        </div>
-        <div class="checkinout-sep" aria-hidden="true"></div>
-        <div class="checkinout-item">
-          <div class="checkinout-icon"><i class="fas fa-leaf" aria-hidden="true"></i></div>
-          <div><span class="checkinout-label">Eco Reminder</span><span class="checkinout-time" style="font-size:0.9rem;">Switch off AC on exit</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- BOOKING BAR -->
-  <div id="booking-bar" role="search" aria-label="Room availability search">
-    <div class="container" style="padding:0">
-      <div class="booking-bar-inner">
-        <div class="booking-field">
-          <label for="checkin" class="booking-field-label"><i class="fas fa-calendar-alt" aria-hidden="true"></i>Check-In Date</label>
-          <input type="date" id="checkin" name="checkin" aria-label="Check-in date" />
-        </div>
-        <div class="booking-field">
-          <label for="checkout" class="booking-field-label"><i class="fas fa-calendar-check" aria-hidden="true"></i>Check-Out Date</label>
-          <input type="date" id="checkout" name="checkout" aria-label="Check-out date" />
-        </div>
-        <div class="booking-field">
-          <label for="guests-select" class="booking-field-label"><i class="fas fa-users" aria-hidden="true"></i>Guests</label>
-          <select id="guests-select" aria-label="Number of guests">
-            <option value="1">1 Guest</option>
-            <option value="2" selected>2 Guests</option>
-            <option value="3">3 Guests</option>
-            <option value="4">4 Guests</option>
-            <option value="5">5+ Guests</option>
-          </select>
-        </div>
-        <div class="booking-field">
-          <label for="room-select" class="booking-field-label"><i class="fas fa-door-open" aria-hidden="true"></i>Room Type</label>
-          <select id="room-select" aria-label="Room type">
-            <option value="Standard Room">Standard Room</option>
-            <option value="Deluxe Sea Facing Hut">Deluxe Sea Facing Hut</option>
-            <option value="Super Deluxe Sea Facing">Super Deluxe Sea Facing</option>
-            <option value="Sea Facing Bungalow">Sea Facing Bungalow</option>
-          </select>
-        </div>
-        <button class="booking-submit" onclick="handleBooking()" aria-label="Check room availability">
-          <i class="fas fa-search" aria-hidden="true"></i>Check Availability
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- GUEST POLICY BANNER -->
-  <div class="policy-banner" role="note" aria-label="Guest policy highlights">
-    <div class="container">
-      <div class="policy-banner-inner">
-        <div class="policy-item"><i class="fas fa-heart" aria-hidden="true"></i><span>Couples &amp; Families Welcome</span></div>
-        <div class="policy-divider" aria-hidden="true"></div>
-        <div class="policy-item"><i class="fas fa-ban" aria-hidden="true"></i><span>All-Male / Stag Groups Not Permitted</span></div>
-        <div class="policy-divider" aria-hidden="true"></div>
-        <div class="policy-item"><i class="fas fa-id-card" aria-hidden="true"></i><span>Govt. Photo ID Mandatory at Check-In</span></div>
-        <div class="policy-divider" aria-hidden="true"></div>
-        <div class="policy-item"><i class="fas fa-shield-alt" aria-hidden="true"></i><span>Safe &amp; Family-Friendly Environment</span></div>
-      </div>
-    </div>
-  </div>
 
   <!-- ABOUT (HOME SECTION) -->
   <section id="about">
@@ -1754,8 +1665,7 @@
       <div class="rooms-header reveal">
         <p class="section-subtitle" style="color:rgba(255,255,255,0.5)">Accommodation</p>
         <span class="section-label">Unforgettable Stays</span>
-        <h2 class="section-title" style="color:var(--white)">Choose Your <em>Perfect</em> Retreat</h2>
-        <p class="rooms-tariff-note">All stays include <strong>Complimentary Daily Breakfast</strong> (English or Indian set menu). Season tariff per room, per night &mdash; <strong>Regular:</strong> 1st June &ndash; 30th September &nbsp;&middot;&nbsp; <strong>Season:</strong> 1st October &ndash; 17th December &amp; 6th January &ndash; 31st May &nbsp;&middot;&nbsp; <strong>Peak:</strong> 18th December &ndash; 5th January. See the <a onclick="showPage('tariff')">full Season Tariff Card</a> and our <a onclick="showPage('terms')">Booking &amp; Cancellation Policy</a>.</p>
+        <h2 class="section-title" style="color:var(--white)">Choose Your <em>Perfect</em> Vacation Stay</h2>
       </div>
       <div class="rooms-grid">
 
@@ -1776,39 +1686,9 @@
               <span class="amenity-tag"><i class="fas fa-tv" aria-hidden="true"></i>Television</span>
               <span class="amenity-tag"><i class="fas fa-bath" aria-hidden="true"></i>En-suite Bath</span>
             </div>
-                        <div class="room-tariff">
-              <div class="room-tariff-head">Season Tariff <span>per night · + applicable taxes</span></div>
-              <div class="room-tariff-row">
-                <div class="rt-main">
-                  <span class="rt-label"><i class="fas fa-sun" aria-hidden="true"></i>Regular Season</span>
-                  <span class="rt-price">₹3,500</span>
-                </div>
-                <span class="rt-dates">1st June – 30th September</span>
-              </div>
-              <div class="room-tariff-row">
-                <div class="rt-main">
-                  <span class="rt-label"><i class="fas fa-calendar-alt" aria-hidden="true"></i>Season Rate</span>
-                  <span class="rt-price">₹3,999</span>
-                </div>
-                <span class="rt-dates">1st October – 17th December &amp; 6th January – 31st May</span>
-              </div>
-              <div class="room-tariff-row peak">
-                <div class="rt-main">
-                  <span class="rt-label"><i class="fas fa-star" aria-hidden="true"></i>Peak Season</span>
-                  <span class="rt-price">₹6,599</span>
-                </div>
-                <span class="rt-dates">18th December – 5th January</span>
-              </div>
-            </div>
 <div class="room-footer">
-              <div class="room-price">
-                <span class="from">Starting from</span>
-                <span class="amount">₹3,500</span>
-                <span class="night">/night</span>
-              </div>
               <button class="room-book-btn" onclick="bookRoom('Standard Room','₹3,500')">Book Now</button>
             </div>
-            <button class="room-pay-btn" onclick="openPayment('Standard Room', 3500)"><i class="fas fa-qrcode" aria-hidden="true"></i><span>Make payment for Booking Room</span><span class="room-pay-amount">₹3,500</span></button>
           </div>
         </div>
 
@@ -1830,39 +1710,9 @@
               <span class="amenity-tag"><i class="fas fa-door-open" aria-hidden="true"></i>Private Balcony</span>
               <span class="amenity-tag"><i class="fas fa-wifi" aria-hidden="true"></i>Free Wi-Fi</span>
             </div>
-                        <div class="room-tariff">
-              <div class="room-tariff-head">Season Tariff <span>per night · + applicable taxes</span></div>
-              <div class="room-tariff-row">
-                <div class="rt-main">
-                  <span class="rt-label"><i class="fas fa-sun" aria-hidden="true"></i>Regular Season</span>
-                  <span class="rt-price">₹4,000</span>
-                </div>
-                <span class="rt-dates">1st June – 30th September</span>
-              </div>
-              <div class="room-tariff-row">
-                <div class="rt-main">
-                  <span class="rt-label"><i class="fas fa-calendar-alt" aria-hidden="true"></i>Season Rate</span>
-                  <span class="rt-price">₹4,499</span>
-                </div>
-                <span class="rt-dates">1st October – 17th December &amp; 6th January – 31st May</span>
-              </div>
-              <div class="room-tariff-row peak">
-                <div class="rt-main">
-                  <span class="rt-label"><i class="fas fa-star" aria-hidden="true"></i>Peak Season</span>
-                  <span class="rt-price">₹7,499</span>
-                </div>
-                <span class="rt-dates">18th December – 5th January</span>
-              </div>
-            </div>
 <div class="room-footer">
-              <div class="room-price">
-                <span class="from">Starting from</span>
-                <span class="amount">₹4,000</span>
-                <span class="night">/night</span>
-              </div>
               <button class="room-book-btn" onclick="bookRoom('Deluxe Sea Facing Hut','₹4,000')">Book Now</button>
             </div>
-            <button class="room-pay-btn" onclick="openPayment('Deluxe Sea Facing Hut', 4000)"><i class="fas fa-qrcode" aria-hidden="true"></i><span>Make payment for Booking Room</span><span class="room-pay-amount">₹4,000</span></button>
           </div>
         </div>
 
@@ -1883,39 +1733,9 @@
               <span class="amenity-tag"><i class="fas fa-expand" aria-hidden="true"></i>Spacious Layout</span>
               <span class="amenity-tag"><i class="fas fa-star" aria-hidden="true"></i>Upgraded Amenities</span>
             </div>
-                        <div class="room-tariff">
-              <div class="room-tariff-head">Season Tariff <span>per night · + applicable taxes</span></div>
-              <div class="room-tariff-row">
-                <div class="rt-main">
-                  <span class="rt-label"><i class="fas fa-sun" aria-hidden="true"></i>Regular Season</span>
-                  <span class="rt-price">₹4,500</span>
-                </div>
-                <span class="rt-dates">1st June – 30th September</span>
-              </div>
-              <div class="room-tariff-row">
-                <div class="rt-main">
-                  <span class="rt-label"><i class="fas fa-calendar-alt" aria-hidden="true"></i>Season Rate</span>
-                  <span class="rt-price">₹4,999</span>
-                </div>
-                <span class="rt-dates">1st October – 17th December &amp; 6th January – 31st May</span>
-              </div>
-              <div class="room-tariff-row peak">
-                <div class="rt-main">
-                  <span class="rt-label"><i class="fas fa-star" aria-hidden="true"></i>Peak Season</span>
-                  <span class="rt-price">₹7,999</span>
-                </div>
-                <span class="rt-dates">18th December – 5th January</span>
-              </div>
-            </div>
 <div class="room-footer">
-              <div class="room-price">
-                <span class="from">Starting from</span>
-                <span class="amount">₹4,500</span>
-                <span class="night">/night</span>
-              </div>
               <button class="room-book-btn" onclick="bookRoom('Super Deluxe Sea Facing','₹4,500')">Book Now</button>
             </div>
-            <button class="room-pay-btn" onclick="openPayment('Super Deluxe Sea Facing', 4500)"><i class="fas fa-qrcode" aria-hidden="true"></i><span>Make payment for Booking Room</span><span class="room-pay-amount">₹4,500</span></button>
           </div>
         </div>
 
@@ -1937,39 +1757,9 @@
               <span class="amenity-tag"><i class="fas fa-snowflake" aria-hidden="true"></i>Air Conditioned</span>
               <span class="amenity-tag"><i class="fas fa-crown" aria-hidden="true"></i>Premium</span>
             </div>
-                        <div class="room-tariff">
-              <div class="room-tariff-head">Season Tariff <span>per night · + applicable taxes</span></div>
-              <div class="room-tariff-row">
-                <div class="rt-main">
-                  <span class="rt-label"><i class="fas fa-sun" aria-hidden="true"></i>Regular Season</span>
-                  <span class="rt-price">₹6,000</span>
-                </div>
-                <span class="rt-dates">1st June – 30th September</span>
-              </div>
-              <div class="room-tariff-row">
-                <div class="rt-main">
-                  <span class="rt-label"><i class="fas fa-calendar-alt" aria-hidden="true"></i>Season Rate</span>
-                  <span class="rt-price">₹7,000</span>
-                </div>
-                <span class="rt-dates">1st October – 17th December &amp; 6th January – 31st May</span>
-              </div>
-              <div class="room-tariff-row peak">
-                <div class="rt-main">
-                  <span class="rt-label"><i class="fas fa-star" aria-hidden="true"></i>Peak Season</span>
-                  <span class="rt-price">₹9,999</span>
-                </div>
-                <span class="rt-dates">18th December – 5th January</span>
-              </div>
-            </div>
 <div class="room-footer">
-              <div class="room-price">
-                <span class="from">Starting from</span>
-                <span class="amount">₹6,000</span>
-                <span class="night">/night</span>
-              </div>
               <button class="room-book-btn" onclick="bookRoom('Sea Facing Bungalow','₹6,000')">Book Now</button>
             </div>
-            <button class="room-pay-btn" onclick="openPayment('Sea Facing Bungalow', 6000)"><i class="fas fa-qrcode" aria-hidden="true"></i><span>Make payment for Booking Room</span><span class="room-pay-amount">₹6,000</span></button>
           </div>
         </div>
       </div>
@@ -2017,10 +1807,6 @@
   <!-- DINING -->
   <section id="dining">
     <div class="dining-grid">
-      <div class="dining-visual reveal-left">
-        <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/yoga/Food.png?w=900&q=80&auto=format&fit=crop" alt="Kamaxi in-house restaurant" loading="lazy"/>
-        <div class="dining-visual-overlay" aria-hidden="true"></div>
-      </div>
       <div class="dining-content reveal-right">
         <span class="section-subtitle" style="color:rgba(255,255,255,0.5)">In-House Restaurant &amp; Bar</span>
         <span class="section-label">Kitchen &amp; Dining</span>
@@ -2129,81 +1915,6 @@
     </div>
   </section>
 
-  <!-- GALLERY -->
-  <!--<section id="gallery">
-    <div class="container">
-      <div class="gallery-header reveal">
-        <span class="section-subtitle">Visual Stories</span>
-        <span class="section-label">Our Gallery</span>
-        <h2 class="section-title">Life at <em>Kamaxi Beach Resort </em></h2>
-        <div class="gold-divider center"></div>
-      </div>
-      <div class="gallery-grid" role="list">
-        <div class="gallery-item" role="listitem" onclick="openLightbox('https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Beach_Side/New1.jpg?w=1200&q=90')" aria-label="View Polem Beach fullscreen">
-          <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Beach_Side/New1.jpg?w=800&q=80&auto=format&fit=crop" alt="Polem Beach, South Goa" loading="lazy"/>
-          <div class="gallery-item-overlay"><div class="gallery-zoom-icon"><i class="fas fa-expand-alt" aria-hidden="true"></i></div></div>
-        </div>
-        <div class="gallery-item" role="listitem" onclick="openLightbox('https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Beach_Side/New%202.png?w=1200&q=90')" aria-label="View beach view fullscreen">
-          <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Beach_Side/New%202.png?w=600&q=80&auto=format&fit=crop" alt="Beach view from Kamaxi Resort" loading="lazy"/>
-          <div class="gallery-item-overlay"><div class="gallery-zoom-icon"><i class="fas fa-expand-alt" aria-hidden="true"></i></div></div>
-        </div>
-        <div class="gallery-item" role="listitem" onclick="openLightbox('https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/yoga/Read16.JPG?w=1200&q=90')" aria-label="View resort pool fullscreen">
-          <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/yoga/Read16.JPG?w=600&q=80&auto=format&fit=crop" alt="Resort relaxation area" loading="lazy"/>
-          <div class="gallery-item-overlay"><div class="gallery-zoom-icon"><i class="fas fa-expand-alt" aria-hidden="true"></i></div></div>
-        </div>
-        <div class="gallery-item" role="listitem" onclick="openLightbox('https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/yoga/Read%2013.png?w=1200&q=90')" aria-label="View restaurant fullscreen">
-          <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/yoga/Read%2013.png?w=600&q=80&auto=format&fit=crop" alt="In-house restaurant at Kamaxi" loading="lazy"/>
-          <div class="gallery-item-overlay"><div class="gallery-zoom-icon"><i class="fas fa-expand-alt" aria-hidden="true"></i></div></div>
-        </div>
-        <div class="gallery-item" role="listitem" onclick="openLightbox('https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/yoga/Read12.png?w=1200&q=90')" aria-label="View beach cottage fullscreen">
-          <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/yoga/Read12.png?w=600&q=80&auto=format&fit=crop" alt="Sea facing beach cottage" loading="lazy"/>
-          <div class="gallery-item-overlay"><div class="gallery-zoom-icon"><i class="fas fa-expand-alt" aria-hidden="true"></i></div></div>
-        </div>
-      </div>
-    </div>
-  </section>-->
-
-  <section id="gallery">
-    <div class="container">
-      <div class="gallery-header reveal visible">
-        <span class="section-subtitle">Visual Stories</span>
-        <span class="section-label">Our Gallery</span>
-        <h2 class="section-title">Life at <em>Kamaxi Beach Resort </em></h2>
-        <div class="gold-divider center"></div>
-      </div>
-      <div class="gallery-grid" role="list">
-        <div class="gallery-item" role="listitem" onclick="openLightbox('https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/DJI/Bestpic.png?w=1200&amp;q=90')" aria-label="View aerial photo fullscreen">
-          <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/DJI/Bestpic.png?w=800&amp;q=80&amp;auto=format&amp;fit=crop" alt="Aerial view of Polem Beach and Kamaxi Beach Resort" loading="lazy">
-          <div class="gallery-item-overlay"><div class="gallery-zoom-icon"><i class="fas fa-expand-alt" aria-hidden="true"></i></div></div>
-        </div>
-        <div class="gallery-item" role="listitem" onclick="openLightbox('https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/DJI/Best2.png?w=1200&amp;q=90')" aria-label="View aerial photo fullscreen">
-          <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/DJI/Best2.png?w=800&amp;q=80&amp;auto=format&amp;fit=crop" alt="Kamaxi Beach Resort from above, Polem Beach, South Goa" loading="lazy">
-          <div class="gallery-item-overlay"><div class="gallery-zoom-icon"><i class="fas fa-expand-alt" aria-hidden="true"></i></div></div>
-        </div>
-        <div class="gallery-item" role="listitem" onclick="openLightbox('https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Beach_Side/New1.jpg?w=1200&amp;q=90')" aria-label="View Polem Beach fullscreen">
-          <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Beach_Side/New1.jpg?w=800&amp;q=80&amp;auto=format&amp;fit=crop" alt="Polem Beach, South Goa" loading="lazy">
-          <div class="gallery-item-overlay"><div class="gallery-zoom-icon"><i class="fas fa-expand-alt" aria-hidden="true"></i></div></div>
-        </div>
-        <div class="gallery-item" role="listitem" onclick="openLightbox('https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Beach_Side/New%202.png?w=1200&amp;q=90')" aria-label="View beach view fullscreen">
-          <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Beach_Side/New%202.png?w=600&amp;q=80&amp;auto=format&amp;fit=crop" alt="Beach view from Kamaxi Resort" loading="lazy">
-          <div class="gallery-item-overlay"><div class="gallery-zoom-icon"><i class="fas fa-expand-alt" aria-hidden="true"></i></div></div>
-        </div>
-        <div class="gallery-item" role="listitem" onclick="openLightbox('https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/yoga/Read16.JPG?w=1200&amp;q=90')" aria-label="View relaxation area fullscreen">
-          <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/yoga/Read16.JPG?w=600&amp;q=80&amp;auto=format&amp;fit=crop" alt="Resort relaxation area" loading="lazy">
-          <div class="gallery-item-overlay"><div class="gallery-zoom-icon"><i class="fas fa-expand-alt" aria-hidden="true"></i></div></div>
-        </div>
-        <div class="gallery-item" role="listitem" onclick="openLightbox('https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/yoga/Read%2013.png?w=1200&amp;q=90')" aria-label="View restaurant fullscreen">
-          <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/yoga/Read%2013.png?w=600&amp;q=80&amp;auto=format&amp;fit=crop" alt="In-house restaurant at Kamaxi" loading="lazy">
-          <div class="gallery-item-overlay"><div class="gallery-zoom-icon"><i class="fas fa-expand-alt" aria-hidden="true"></i></div></div>
-        </div>
-        <div class="gallery-item" role="listitem" onclick="openLightbox('https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/yoga/Read12.png?w=1200&amp;q=90')" aria-label="View beach cottage fullscreen">
-          <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/yoga/Read12.png?w=600&amp;q=80&amp;auto=format&amp;fit=crop" alt="Sea facing beach cottage" loading="lazy">
-          <div class="gallery-item-overlay"><div class="gallery-zoom-icon"><i class="fas fa-expand-alt" aria-hidden="true"></i></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- PAYMENT MODAL -->
   <div class="payment-modal" id="paymentModal" role="dialog" aria-modal="true" aria-label="Make payment for booking room">
     <div class="payment-overlay" onclick="closePayment()"></div>
@@ -2301,38 +2012,6 @@
     <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close image viewer"><i class="fas fa-times" aria-hidden="true"></i></button>
     <img src="" id="lightboxImg" alt="Kamaxi Beach Resort gallery image"/>
   </div>
-
-  <!-- GUEST POLICY -->
-  <section id="guest-policy">
-    <div class="container">
-      <div class="policy-grid">
-        <div class="policy-visual reveal-left">
-          <h3>Guest Admission<br>&amp; Group Policy</h3>
-          <p>Our priority is to maintain a peaceful, secure, and family-friendly environment for every guest at Kamaxi Beach Resort.</p>
-          <div class="policy-list">
-            <div class="policy-list-item"><i class="fas fa-check-circle" aria-hidden="true"></i><span>The resort welcomes couples, families, and mixed-gender groups only.</span></div>
-            <div class="policy-list-item"><i class="fas fa-times-circle" aria-hidden="true"></i><span>All-male groups and stag-only bookings are strictly not permitted.</span></div>
-            <div class="policy-list-item"><i class="fas fa-times-circle" aria-hidden="true"></i><span>Bachelor parties, hen parties, and similar celebratory stag events are not hosted.</span></div>
-            <div class="policy-list-item"><i class="fas fa-id-card" aria-hidden="true"></i><span>A valid government-issued photo ID is mandatory for all adult guests at check-in.</span></div>
-            <div class="policy-list-item"><i class="fas fa-shield-alt" aria-hidden="true"></i><span>Management reserves the right to refuse check-in or cancel reservations that do not comply with this policy.</span></div>
-            <div class="policy-list-item"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i><span>Any booking found to be misrepresented at arrival may be cancelled without a refund.</span></div>
-          </div>
-        </div>
-        <div class="policy-content reveal-right">
-          <span class="section-label">Our Policy</span>
-          <h2 class="section-title">A Safe &amp; <em>Welcoming</em> Space for All</h2>
-          <div class="gold-divider"></div>
-          <p style="font-size:0.98rem;font-weight:300;color:var(--gray-700);line-height:1.95;margin-bottom:18px;">At Kamaxi Beach Resort, we are committed to providing every guest with a comfortable, secure, and enjoyable stay. Our guest admission policy ensures the peace and well-being of all visitors throughout their time with us.</p>
-          <p style="font-size:0.98rem;font-weight:300;color:var(--gray-700);line-height:1.95;">We warmly welcome couples on romantic getaways, families with children, mixed-group friends on vacation, and solo travellers seeking peace and tranquility.</p>
-          <div class="policy-note"><i class="fas fa-info-circle" aria-hidden="true"></i>For any clarification prior to booking, please contact our reservations team directly. We are happy to assist you plan the perfect stay at Polem Beach.</div>
-          <div style="margin-top:26px;display:flex;gap:14px;flex-wrap:wrap;">
-            <a href="https://wa.me/919270318818" class="btn btn-teal" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i>Contact Us</a>
-            <a href="tel:+919270318818" class="btn btn-gold"><i class="fas fa-phone" aria-hidden="true"></i>Call Now</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- TESTIMONIALS -->
   <section id="testimonials">
@@ -2524,63 +2203,19 @@
     </div>
   </section>
 
-  <!-- About page New Code -->
-  <section class="yoga-section">
-  <div class="container">
-    <div class="yoga-grid">
-      
-      <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/yoga/Read17.jpg?w=800&q=80&auto=format&fit=crop" 
-           alt="Yoga session at Kamaxi Beach Resort" 
-           class="yoga-img reveal-left" 
-           loading="lazy"/>
-
-      <div class="yoga-content reveal-right">
-        <span class="section-label">Wellness &amp; Freedom</span>
-    
-        <h2>A Different Kind of <em>Retreat</em></h2>
-        <div class="gold-divider"></div>
-
-        <p>Many wellness destinations follow rigid schedules and strict routines. At Kamaxi, we believe in a more balanced approach.</p>
-
-        <h3>Yoga with Freedom</h3>
-        <p>Our yoga  are designed to calm the mind and restore balance, without pressure or expectations. Practice at your own pace and connect with what feels right for you.</p>
-
-        <h3>No Restrictions</h3>
-        <p> Whether you prefer a peaceful sunrise meditation or a relaxing evening by the beach, your time here is entirely your own.</p>
-
-
-        <h3>Why Choose Kamaxi?</h3>
-        <p>Kamaxi is for those who want both stillness and energy in one place. Begin your day surrounded by calm, embrace the beauty of nature, and create meaningful moments that stay with you long after your visit.</p>
-
-        <h3>The Kamaxi Philosophy</h3>
-        <p>We create a space for mindfulness without limiting your freedom. True wellness is not just about discipline. It’s about feeling good, living freely, and enjoying every moment.</p>
-
-        <p><strong>Your retreat. Your pace. Your rules.</strong></p>
-
-        <div class="yoga-features">
-          <div class="yoga-feature"><i class="fas fa-sun"></i> Sunrise yoga on the beach</div>
-          <div class="yoga-feature"><i class="fas fa-om"></i>  Meditation &amp; mindfulness</div>
-          <div class="yoga-feature"><i class="fas fa-spa"></i> All levels welcome</div>
-          <div class="yoga-feature"><i class="fas fa-utensils"></i> Wellness-focused dining</div>
-          <div class="yoga-feature"><i class="fas fa-moon"></i> Evening relaxation &amp; breathwork</div>
-          <div class="yoga-feature"><i class="fas fa-umbrella-beach"></i> Private beach experience</div>
+  <!-- YOGA CTA (links to sister site) -->
+  <section class="yoga-cta" aria-labelledby="yoga-cta-heading">
+    <div class="container">
+      <div class="yoga-cta-inner reveal">
+        <div class="yoga-cta-text">
+          <span class="section-label">Yoga on Polem Beach</span>
+          <h2 class="section-title" id="yoga-cta-heading">Looking for yoga retreats or teacher training?</h2>
+          <p class="about-text">Our sister site, Polem Beach Yoga, has all the details on retreats and the 200-hour yoga teacher training.</p>
         </div>
-
-        <div style="margin-top:28px;">
-          <a href="https://wa.me/919270318818?text=Hi%2C+I'm+interested+in+Yoga+Retreat+packages+at+Kamaxi+Beach+Resort.+Could+you+please+share+details%3F" 
-             class="btn btn-teal" 
-             target="_blank" 
-             rel="noopener">
-            <i class="fab fa-whatsapp"></i> Enquire About Retreats
-          </a>
-        </div>
-
+        <a href="http://www.polembeachyoga.com/" class="btn btn-teal" target="_blank" rel="noopener">Visit Polem Beach Yoga<i class="fas fa-arrow-right" aria-hidden="true"></i></a>
       </div>
     </div>
-  </div>
-</section>
-
-  <!-- About page New Code -->
+  </section>
 
   <!-- About page CTA -->
   <section class="cta-section" aria-labelledby="about-cta-heading">
@@ -2599,568 +2234,6 @@
 
 </div><!-- /page-about -->
 
-
-<!-- ===================================
-     SEASON TARIFF CARD PAGE
-=================================== -->
-<div id="page-tariff" class="page">
-
-  <div class="page-hero">
-    <div class="page-hero-bg" style="background-image:url('https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/DJI/Kamaxi.png?w=1920&q=80');"></div>
-    <div class="page-hero-overlay" style="background:linear-gradient(135deg,rgba(13,61,58,0.9),rgba(13,61,58,0.68))"></div>
-    <div class="page-hero-content">
-      <span class="section-label" style="font-size:1.8rem;margin-bottom:10px;">Room Tariff</span>
-      <h1>Season <em>Tariff Card</em></h1>
-      <p>Transparent season-wise room rates at Kamaxi Beach Resort, Polem Beach — across Regular, Season, and Peak periods.</p>
-    </div>
-  </div>
-
-  <section class="tariff-section">
-    <div class="container">
-      <div class="tariff-header reveal">
-        <span class="section-subtitle">Rates &amp; Availability</span>
-        <span class="section-label">Season Tariff Card</span>
-        <h2 class="section-title">Room Tariff by <em>Season</em></h2>
-        <div class="gold-divider center"></div>
-        <p>Our room tariff is divided into three seasons for the year. Please find the rate applicable to your travel dates below. All rates are per room, per night.</p>
-      </div>
-
-      <div class="tariff-note-bar reveal">
-        <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-        <span><strong>Season Dates:</strong> Regular Season — <strong>1st June – 30th September</strong> &nbsp;&middot;&nbsp; Season Rate — <strong>1st October – 17th December &amp; 6th January – 31st May</strong> &nbsp;&middot;&nbsp; Peak Season — <strong>18th December – 5th January</strong></span>
-      </div>
-
-      <!-- INCLUSIONS BANNER -->
-      <div class="tariff-inclusions-card reveal">
-        <div class="tariff-inclusions-left">
-          <div class="tariff-inclusions-icon"><i class="fas fa-coffee" aria-hidden="true"></i></div>
-          <div>
-            <div class="tariff-inclusions-title">Every Stay Includes Complimentary Breakfast</div>
-            <div class="tariff-inclusions-desc">Enjoy hot breakfast daily (8:00 AM – 10:30 AM). Choose between <strong>Set 1: English Breakfast</strong> (eggs any style, toast with butter &amp; jam, tea/coffee) or <strong>Set 2: Indian Breakfast</strong> (paratha/puri bhaji, pickle &amp; curd, tea/coffee).</div>
-          </div>
-        </div>
-        <div class="tariff-inclusions-pills">
-          <span class="tariff-inc-pill"><i class="fas fa-check-circle" aria-hidden="true"></i>Daily Free Breakfast</span>
-          <span class="tariff-inc-pill"><i class="fas fa-wifi" aria-hidden="true"></i>Free High-Speed Wi-Fi</span>
-          <span class="tariff-inc-pill"><i class="fas fa-umbrella-beach" aria-hidden="true"></i>Direct Beach Access</span>
-        </div>
-      </div>
-
-      <!-- TARIFF TABLE (desktop-friendly) -->
-      <div class="tariff-table-wrap reveal">
-        <table class="tariff-table">
-          <thead>
-            <tr>
-              <th>Room Category</th>
-              <th class="tariff-col-num">Regular Season<span class="th-sub">1st June – 30th September</span></th>
-              <th class="tariff-col-num">Season Rate<span class="th-sub">1st Oct – 17th Dec &amp; 6th Jan – 31st May</span></th>
-              <th class="tariff-col-num tariff-col-peak">Peak Season<span class="th-sub">18th December – 5th January</span></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="tariff-room-cell">
-                  <div class="tariff-room-icon"><i class="fas fa-bed" aria-hidden="true"></i></div>
-                  <div>
-                    <div class="tariff-room-name">Standard Room</div>
-                    <span class="tariff-room-tag">Category One</span>
-                  </div>
-                </div>
-              </td>
-              <td class="tariff-cell-num">
-                <div class="tariff-base">₹3,500</div>
-                <div class="tariff-base-sub">per night</div>
-              </td>
-              <td class="tariff-cell-num">
-                <div class="tariff-season">₹3,999</div>
-                <div class="tariff-season-sub">per night</div>
-              </td>
-              <td class="tariff-cell-num tariff-cell-peak">
-                <div class="tariff-peak">₹6,599</div>
-                <div class="tariff-peak-sub">per night</div>
-              </td>
-            </tr>
-            <tr class="tariff-row-featured">
-              <td>
-                <div class="tariff-room-cell">
-                  <div class="tariff-room-icon"><i class="fas fa-water" aria-hidden="true"></i></div>
-                  <div>
-                    <div class="tariff-room-name">Deluxe Sea Facing Hut<span class="tariff-badge-inline">Popular</span></div>
-                    <span class="tariff-room-tag">Category Two</span>
-                  </div>
-                </div>
-              </td>
-              <td class="tariff-cell-num">
-                <div class="tariff-base">₹4,000</div>
-                <div class="tariff-base-sub">per night</div>
-              </td>
-              <td class="tariff-cell-num">
-                <div class="tariff-season">₹4,499</div>
-                <div class="tariff-season-sub">per night</div>
-              </td>
-              <td class="tariff-cell-num tariff-cell-peak">
-                <div class="tariff-peak">₹7,499</div>
-                <div class="tariff-peak-sub">per night</div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="tariff-room-cell">
-                  <div class="tariff-room-icon"><i class="fas fa-star" aria-hidden="true"></i></div>
-                  <div>
-                    <div class="tariff-room-name">Super Deluxe Sea Facing</div>
-                    <span class="tariff-room-tag">Category Three</span>
-                  </div>
-                </div>
-              </td>
-              <td class="tariff-cell-num">
-                <div class="tariff-base">₹4,500</div>
-                <div class="tariff-base-sub">per night</div>
-              </td>
-              <td class="tariff-cell-num">
-                <div class="tariff-season">₹4,999</div>
-                <div class="tariff-season-sub">per night</div>
-              </td>
-              <td class="tariff-cell-num tariff-cell-peak">
-                <div class="tariff-peak">₹7,999</div>
-                <div class="tariff-peak-sub">per night</div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="tariff-room-cell">
-                  <div class="tariff-room-icon"><i class="fas fa-crown" aria-hidden="true"></i></div>
-                  <div>
-                    <div class="tariff-room-name">Sea Facing Bungalow<span class="tariff-badge-inline">Premium</span></div>
-                    <span class="tariff-room-tag">Category Four</span>
-                  </div>
-                </div>
-              </td>
-              <td class="tariff-cell-num">
-                <div class="tariff-base">₹6,000</div>
-                <div class="tariff-base-sub">per night</div>
-              </td>
-              <td class="tariff-cell-num">
-                <div class="tariff-season">₹7,000</div>
-                <div class="tariff-season-sub">per night</div>
-              </td>
-              <td class="tariff-cell-num tariff-cell-peak">
-                <div class="tariff-peak">₹9,999</div>
-                <div class="tariff-peak-sub">per night</div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- TARIFF CARDS (mobile-friendly summary) -->
-      <div class="tariff-cards-grid">
-        <div class="tariff-card reveal delay-1">
-          <div class="tariff-card-icon"><i class="fas fa-bed" aria-hidden="true"></i></div>
-          <div class="tariff-card-name">Standard Room</div>
-          <div class="tariff-card-per">per room · per night</div>
-          <div class="tariff-card-seasons">
-            <div class="tariff-card-season-row">
-              <span class="tariff-card-season-label"><i class="fas fa-sun" aria-hidden="true"></i>Regular Season</span>
-              <span class="tariff-card-season-price">₹3,500</span>
-            </div>
-            <div class="tariff-card-season-row">
-              <span class="tariff-card-season-label"><i class="fas fa-calendar-alt" aria-hidden="true"></i>Season Rate</span>
-              <span class="tariff-card-season-price">₹3,999</span>
-            </div>
-            <div class="tariff-card-season-row peak">
-              <span class="tariff-card-season-label"><i class="fas fa-star" aria-hidden="true"></i>Peak Season</span>
-              <span class="tariff-card-season-price">₹6,599</span>
-            </div>
-          </div>
-          <a href="https://wa.me/919270318818?text=Hi%2C+I%27d+like+to+know+more+about+the+Season+Tariff+for+the+Standard+Room+at+Kamaxi+Beach+Resort." target="_blank" rel="noopener" class="tariff-card-cta">Enquire Now</a>
-        </div>
-        <div class="tariff-card featured reveal delay-2">
-          <div class="tariff-card-badge">Most Popular</div>
-          <div class="tariff-card-icon"><i class="fas fa-water" aria-hidden="true"></i></div>
-          <div class="tariff-card-name">Deluxe Sea Facing Hut</div>
-          <div class="tariff-card-per">per room · per night</div>
-          <div class="tariff-card-seasons">
-            <div class="tariff-card-season-row">
-              <span class="tariff-card-season-label"><i class="fas fa-sun" aria-hidden="true"></i>Regular Season</span>
-              <span class="tariff-card-season-price">₹4,000</span>
-            </div>
-            <div class="tariff-card-season-row">
-              <span class="tariff-card-season-label"><i class="fas fa-calendar-alt" aria-hidden="true"></i>Season Rate</span>
-              <span class="tariff-card-season-price">₹4,499</span>
-            </div>
-            <div class="tariff-card-season-row peak">
-              <span class="tariff-card-season-label"><i class="fas fa-star" aria-hidden="true"></i>Peak Season</span>
-              <span class="tariff-card-season-price">₹7,499</span>
-            </div>
-          </div>
-          <a href="https://wa.me/919270318818?text=Hi%2C+I%27d+like+to+know+more+about+the+Season+Tariff+for+the+Deluxe+Sea+Facing+Hut+at+Kamaxi+Beach+Resort." target="_blank" rel="noopener" class="tariff-card-cta">Enquire Now</a>
-        </div>
-        <div class="tariff-card reveal delay-3">
-          <div class="tariff-card-icon"><i class="fas fa-star" aria-hidden="true"></i></div>
-          <div class="tariff-card-name">Super Deluxe Sea Facing</div>
-          <div class="tariff-card-per">per room · per night</div>
-          <div class="tariff-card-seasons">
-            <div class="tariff-card-season-row">
-              <span class="tariff-card-season-label"><i class="fas fa-sun" aria-hidden="true"></i>Regular Season</span>
-              <span class="tariff-card-season-price">₹4,500</span>
-            </div>
-            <div class="tariff-card-season-row">
-              <span class="tariff-card-season-label"><i class="fas fa-calendar-alt" aria-hidden="true"></i>Season Rate</span>
-              <span class="tariff-card-season-price">₹4,999</span>
-            </div>
-            <div class="tariff-card-season-row peak">
-              <span class="tariff-card-season-label"><i class="fas fa-star" aria-hidden="true"></i>Peak Season</span>
-              <span class="tariff-card-season-price">₹7,999</span>
-            </div>
-          </div>
-          <a href="https://wa.me/919270318818?text=Hi%2C+I%27d+like+to+know+more+about+the+Season+Tariff+for+the+Super+Deluxe+Sea+Facing+room+at+Kamaxi+Beach+Resort." target="_blank" rel="noopener" class="tariff-card-cta">Enquire Now</a>
-        </div>
-        <div class="tariff-card reveal delay-4">
-          <div class="tariff-card-badge" style="background:linear-gradient(135deg,#8B4513,#5D2E0C)">Premium</div>
-          <div class="tariff-card-icon"><i class="fas fa-crown" aria-hidden="true"></i></div>
-          <div class="tariff-card-name">Sea Facing Bungalow</div>
-          <div class="tariff-card-per">per room · per night</div>
-          <div class="tariff-card-seasons">
-            <div class="tariff-card-season-row">
-              <span class="tariff-card-season-label"><i class="fas fa-sun" aria-hidden="true"></i>Regular Season</span>
-              <span class="tariff-card-season-price">₹6,000</span>
-            </div>
-            <div class="tariff-card-season-row">
-              <span class="tariff-card-season-label"><i class="fas fa-calendar-alt" aria-hidden="true"></i>Season Rate</span>
-              <span class="tariff-card-season-price">₹7,000</span>
-            </div>
-            <div class="tariff-card-season-row peak">
-              <span class="tariff-card-season-label"><i class="fas fa-star" aria-hidden="true"></i>Peak Season</span>
-              <span class="tariff-card-season-price">₹9,999</span>
-            </div>
-          </div>
-          <a href="https://wa.me/919270318818?text=Hi%2C+I%27d+like+to+know+more+about+the+Season+Tariff+for+the+Sea+Facing+Bungalow+at+Kamaxi+Beach+Resort." target="_blank" rel="noopener" class="tariff-card-cta">Enquire Now</a>
-        </div>
-      </div>
-
-      <!-- ===================================
-           DISCOUNTED ROOM RATES — 15% OFF
-      =================================== -->
-      <div class="disc-block" id="discount-rates">
-
-        <div class="disc-head reveal">
-          <span class="disc-eyebrow"><i class="fas fa-tags" aria-hidden="true"></i>Limited Period Offer</span>
-          <h3>Book Direct &amp; Save <em>15% OFF</em></h3>
-          <p>Reserve directly with us and enjoy a flat <strong>15% discount on published rates</strong> for both Regular Season and Season Rate periods. No middlemen, no hidden charges — just our best available price.</p>
-        </div>
-
-        <div class="disc-badges reveal delay-1">
-          <div class="disc-badge">
-            <div class="disc-badge-icon"><i class="fas fa-percent" aria-hidden="true"></i></div>
-            <div>
-              <span class="disc-badge-label">Regular Season Discount</span>
-              <div class="disc-badge-value">15% OFF</div>
-              <span class="disc-badge-sub">On Published Rates</span>
-            </div>
-          </div>
-          <div class="disc-badge">
-            <div class="disc-badge-icon"><i class="fas fa-percent" aria-hidden="true"></i></div>
-            <div>
-              <span class="disc-badge-label">Season Rate Discount</span>
-              <div class="disc-badge-value">15% OFF</div>
-              <span class="disc-badge-sub">On Published Rates</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- DISCOUNT TABLE (desktop) -->
-        <div class="disc-table-wrap reveal delay-2">
-          <table class="disc-table">
-            <caption class="sr-only">Kamaxi Beach Resort discounted room rates — 15% off published rates for Regular Season and Season Rate periods</caption>
-            <thead>
-              <tr>
-                <th class="disc-th-room" rowspan="2" scope="col">Room Category</th>
-                <th class="disc-th-group" colspan="2" scope="colgroup">Regular Season<span class="disc-th-sub">1st June – 30th September</span></th>
-                <th class="disc-th-group" colspan="2" scope="colgroup">Season Rate<span class="disc-th-sub">1st Oct – 17th Dec &amp; 6th Jan – 31st May</span></th>
-                <th class="disc-th-peak" rowspan="2" scope="col">Peak Season<span class="disc-th-sub">18th December – 5th January</span></th>
-              </tr>
-              <tr class="disc-subhead">
-                <th scope="col">Published Rate</th>
-                <th class="disc-th-off" scope="col">After 15% Off</th>
-                <th scope="col">Published Rate</th>
-                <th class="disc-th-off" scope="col">After 15% Off</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="disc-td-room">
-                  <div class="disc-room-cell">
-                    <div class="disc-room-icon"><i class="fas fa-bed" aria-hidden="true"></i></div>
-                    <div>
-                      <div class="disc-room-name">Standard Room</div>
-                      <span class="disc-room-tag">Category One</span>
-                    </div>
-                  </div>
-                </td>
-                <td class="disc-cell-pub">
-                  <div class="disc-pub">₹3,500</div>
-                  <div class="disc-pub-sub">per night</div>
-                </td>
-                <td class="disc-cell-off">
-                  <div class="disc-off">₹2,975</div>
-                  <div class="disc-off-sub">per night</div>
-                  <span class="disc-off-pct">(15% OFF)</span>
-                </td>
-                <td class="disc-cell-pub">
-                  <div class="disc-pub">₹3,999</div>
-                  <div class="disc-pub-sub">per night</div>
-                </td>
-                <td class="disc-cell-off">
-                  <div class="disc-off">₹3,399</div>
-                  <div class="disc-off-sub">per night</div>
-                  <span class="disc-off-pct">(15% OFF)</span>
-                </td>
-                <td class="disc-cell-peak">
-                  <div class="disc-peak">₹6,599</div>
-                  <div class="disc-peak-sub">per night</div>
-                </td>
-              </tr>
-              <tr class="disc-row-featured">
-                <td class="disc-td-room">
-                  <div class="disc-room-cell">
-                    <div class="disc-room-icon"><i class="fas fa-water" aria-hidden="true"></i></div>
-                    <div>
-                      <div class="disc-room-name">Deluxe Sea Facing Hut<span class="disc-tag-inline">Popular</span></div>
-                      <span class="disc-room-tag">Category Two</span>
-                    </div>
-                  </div>
-                </td>
-                <td class="disc-cell-pub">
-                  <div class="disc-pub">₹4,000</div>
-                  <div class="disc-pub-sub">per night</div>
-                </td>
-                <td class="disc-cell-off">
-                  <div class="disc-off">₹3,400</div>
-                  <div class="disc-off-sub">per night</div>
-                  <span class="disc-off-pct">(15% OFF)</span>
-                </td>
-                <td class="disc-cell-pub">
-                  <div class="disc-pub">₹4,499</div>
-                  <div class="disc-pub-sub">per night</div>
-                </td>
-                <td class="disc-cell-off">
-                  <div class="disc-off">₹3,824</div>
-                  <div class="disc-off-sub">per night</div>
-                  <span class="disc-off-pct">(15% OFF)</span>
-                </td>
-                <td class="disc-cell-peak">
-                  <div class="disc-peak">₹7,499</div>
-                  <div class="disc-peak-sub">per night</div>
-                </td>
-              </tr>
-              <tr>
-                <td class="disc-td-room">
-                  <div class="disc-room-cell">
-                    <div class="disc-room-icon"><i class="fas fa-star" aria-hidden="true"></i></div>
-                    <div>
-                      <div class="disc-room-name">Super Deluxe Sea Facing</div>
-                      <span class="disc-room-tag">Category Three</span>
-                    </div>
-                  </div>
-                </td>
-                <td class="disc-cell-pub">
-                  <div class="disc-pub">₹4,500</div>
-                  <div class="disc-pub-sub">per night</div>
-                </td>
-                <td class="disc-cell-off">
-                  <div class="disc-off">₹3,825</div>
-                  <div class="disc-off-sub">per night</div>
-                  <span class="disc-off-pct">(15% OFF)</span>
-                </td>
-                <td class="disc-cell-pub">
-                  <div class="disc-pub">₹4,999</div>
-                  <div class="disc-pub-sub">per night</div>
-                </td>
-                <td class="disc-cell-off">
-                  <div class="disc-off">₹4,249</div>
-                  <div class="disc-off-sub">per night</div>
-                  <span class="disc-off-pct">(15% OFF)</span>
-                </td>
-                <td class="disc-cell-peak">
-                  <div class="disc-peak">₹7,999</div>
-                  <div class="disc-peak-sub">per night</div>
-                </td>
-              </tr>
-              <tr>
-                <td class="disc-td-room">
-                  <div class="disc-room-cell">
-                    <div class="disc-room-icon"><i class="fas fa-crown" aria-hidden="true"></i></div>
-                    <div>
-                      <div class="disc-room-name">Sea Facing Bungalow<span class="disc-tag-inline premium">Premium</span></div>
-                      <span class="disc-room-tag">Category Four</span>
-                    </div>
-                  </div>
-                </td>
-                <td class="disc-cell-pub">
-                  <div class="disc-pub">₹6,000</div>
-                  <div class="disc-pub-sub">per night</div>
-                </td>
-                <td class="disc-cell-off">
-                  <div class="disc-off">₹5,100</div>
-                  <div class="disc-off-sub">per night</div>
-                  <span class="disc-off-pct">(15% OFF)</span>
-                </td>
-                <td class="disc-cell-pub">
-                  <div class="disc-pub">₹7,000</div>
-                  <div class="disc-pub-sub">per night</div>
-                </td>
-                <td class="disc-cell-off">
-                  <div class="disc-off">₹5,950</div>
-                  <div class="disc-off-sub">per night</div>
-                  <span class="disc-off-pct">(15% OFF)</span>
-                </td>
-                <td class="disc-cell-peak">
-                  <div class="disc-peak">₹9,999</div>
-                  <div class="disc-peak-sub">per night</div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="disc-table-foot">
-            <i class="fas fa-leaf" aria-hidden="true"></i>
-            <span>All rates are inclusive of basic amenities &nbsp;&middot;&nbsp; Taxes as applicable &nbsp;&middot;&nbsp; Peak Season rates are fixed and not eligible for the 15% discount</span>
-          </div>
-        </div>
-
-        <!-- DISCOUNT CARDS (tablet / mobile) -->
-        <div class="disc-cards-grid">
-          <div class="disc-card reveal delay-1">
-            <div class="disc-card-badge">15% Off</div>
-            <div class="disc-card-icon"><i class="fas fa-bed" aria-hidden="true"></i></div>
-            <div class="disc-card-name">Standard Room</div>
-            <span class="disc-card-tag">Category One</span>
-            <div class="disc-card-rows">
-              <div class="disc-card-row">
-                <span class="disc-card-label"><i class="fas fa-sun" aria-hidden="true"></i>Regular<br>Season</span>
-                <span class="disc-card-prices"><span class="disc-card-was">₹3,500</span><span class="disc-card-now">₹2,975</span></span>
-              </div>
-              <div class="disc-card-row">
-                <span class="disc-card-label"><i class="fas fa-calendar-alt" aria-hidden="true"></i>Season<br>Rate</span>
-                <span class="disc-card-prices"><span class="disc-card-was">₹3,999</span><span class="disc-card-now">₹3,399</span></span>
-              </div>
-              <div class="disc-card-row peak">
-                <span class="disc-card-label"><i class="fas fa-star" aria-hidden="true"></i>Peak<br>Season</span>
-                <span class="disc-card-prices"><span class="disc-card-now">₹6,599</span></span>
-              </div>
-            </div>
-            <span class="disc-card-save"><i class="fas fa-piggy-bank" aria-hidden="true"></i>&nbsp; Save up to ₹600 / night</span>
-            <a href="https://wa.me/919270318818?text=Hi%2C+I%27d+like+to+book+the+Standard+Room+at+Kamaxi+Beach+Resort+with+the+15%25+direct+booking+discount." target="_blank" rel="noopener" class="disc-card-cta">Claim 15% Off</a>
-          </div>
-
-          <div class="disc-card featured reveal delay-2">
-            <div class="disc-card-badge">15% Off</div>
-            <div class="disc-card-icon"><i class="fas fa-water" aria-hidden="true"></i></div>
-            <div class="disc-card-name">Deluxe Sea Facing Hut</div>
-            <span class="disc-card-tag">Category Two · Popular</span>
-            <div class="disc-card-rows">
-              <div class="disc-card-row">
-                <span class="disc-card-label"><i class="fas fa-sun" aria-hidden="true"></i>Regular<br>Season</span>
-                <span class="disc-card-prices"><span class="disc-card-was">₹4,000</span><span class="disc-card-now">₹3,400</span></span>
-              </div>
-              <div class="disc-card-row">
-                <span class="disc-card-label"><i class="fas fa-calendar-alt" aria-hidden="true"></i>Season<br>Rate</span>
-                <span class="disc-card-prices"><span class="disc-card-was">₹4,499</span><span class="disc-card-now">₹3,824</span></span>
-              </div>
-              <div class="disc-card-row peak">
-                <span class="disc-card-label"><i class="fas fa-star" aria-hidden="true"></i>Peak<br>Season</span>
-                <span class="disc-card-prices"><span class="disc-card-now">₹7,499</span></span>
-              </div>
-            </div>
-            <span class="disc-card-save"><i class="fas fa-piggy-bank" aria-hidden="true"></i>&nbsp; Save up to ₹675 / night</span>
-            <a href="https://wa.me/919270318818?text=Hi%2C+I%27d+like+to+book+the+Deluxe+Sea+Facing+Hut+at+Kamaxi+Beach+Resort+with+the+15%25+direct+booking+discount." target="_blank" rel="noopener" class="disc-card-cta">Claim 15% Off</a>
-          </div>
-
-          <div class="disc-card reveal delay-3">
-            <div class="disc-card-badge">15% Off</div>
-            <div class="disc-card-icon"><i class="fas fa-star" aria-hidden="true"></i></div>
-            <div class="disc-card-name">Super Deluxe Sea Facing</div>
-            <span class="disc-card-tag">Category Three</span>
-            <div class="disc-card-rows">
-              <div class="disc-card-row">
-                <span class="disc-card-label"><i class="fas fa-sun" aria-hidden="true"></i>Regular<br>Season</span>
-                <span class="disc-card-prices"><span class="disc-card-was">₹4,500</span><span class="disc-card-now">₹3,825</span></span>
-              </div>
-              <div class="disc-card-row">
-                <span class="disc-card-label"><i class="fas fa-calendar-alt" aria-hidden="true"></i>Season<br>Rate</span>
-                <span class="disc-card-prices"><span class="disc-card-was">₹4,999</span><span class="disc-card-now">₹4,249</span></span>
-              </div>
-              <div class="disc-card-row peak">
-                <span class="disc-card-label"><i class="fas fa-star" aria-hidden="true"></i>Peak<br>Season</span>
-                <span class="disc-card-prices"><span class="disc-card-now">₹7,999</span></span>
-              </div>
-            </div>
-            <span class="disc-card-save"><i class="fas fa-piggy-bank" aria-hidden="true"></i>&nbsp; Save up to ₹750 / night</span>
-            <a href="https://wa.me/919270318818?text=Hi%2C+I%27d+like+to+book+the+Super+Deluxe+Sea+Facing+room+at+Kamaxi+Beach+Resort+with+the+15%25+direct+booking+discount." target="_blank" rel="noopener" class="disc-card-cta">Claim 15% Off</a>
-          </div>
-
-          <div class="disc-card reveal delay-4">
-            <div class="disc-card-badge">15% Off</div>
-            <div class="disc-card-icon"><i class="fas fa-crown" aria-hidden="true"></i></div>
-            <div class="disc-card-name">Sea Facing Bungalow</div>
-            <span class="disc-card-tag">Category Four · Premium</span>
-            <div class="disc-card-rows">
-              <div class="disc-card-row">
-                <span class="disc-card-label"><i class="fas fa-sun" aria-hidden="true"></i>Regular<br>Season</span>
-                <span class="disc-card-prices"><span class="disc-card-was">₹6,000</span><span class="disc-card-now">₹5,100</span></span>
-              </div>
-              <div class="disc-card-row">
-                <span class="disc-card-label"><i class="fas fa-calendar-alt" aria-hidden="true"></i>Season<br>Rate</span>
-                <span class="disc-card-prices"><span class="disc-card-was">₹7,000</span><span class="disc-card-now">₹5,950</span></span>
-              </div>
-              <div class="disc-card-row peak">
-                <span class="disc-card-label"><i class="fas fa-star" aria-hidden="true"></i>Peak<br>Season</span>
-                <span class="disc-card-prices"><span class="disc-card-now">₹9,999</span></span>
-              </div>
-            </div>
-            <span class="disc-card-save"><i class="fas fa-piggy-bank" aria-hidden="true"></i>&nbsp; Save up to ₹1,050 / night</span>
-            <a href="https://wa.me/919270318818?text=Hi%2C+I%27d+like+to+book+the+Sea+Facing+Bungalow+at+Kamaxi+Beach+Resort+with+the+15%25+direct+booking+discount." target="_blank" rel="noopener" class="disc-card-cta">Claim 15% Off</a>
-          </div>
-        </div>
-
-      </div><!-- /disc-block -->
-
-      <div class="tariff-terms-box reveal">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:18px;">
-          <h3 style="margin-bottom:0;">Terms &amp; Booking Information</h3>
-          <a onclick="showPage('terms')" class="btn btn-gold" style="padding:8px 18px;font-size:0.75rem;cursor:pointer;"><i class="fas fa-file-contract" aria-hidden="true"></i>Full Booking &amp; Cancellation Policy</a>
-        </div>
-        <ul class="tariff-terms-list">
-          <li><i class="fas fa-utensils" aria-hidden="true"></i><span><strong>Complimentary Breakfast:</strong> Every room reservation includes complimentary daily breakfast with choice of <strong>Set 1: English Breakfast</strong> (2 eggs any style, toast with butter &amp; jam, tea or coffee) or <strong>Set 2: Indian Breakfast</strong> (paratha or puri bhaji, pickle &amp; curd, tea or coffee), served 8:00 AM – 10:30 AM.</span></li>
-          <li><i class="fas fa-check-circle" aria-hidden="true"></i><span><strong>15% Direct Booking Discount:</strong> A flat <strong>15% discount on published rates</strong> applies to <strong>Regular Season</strong> and <strong>Season Rate</strong> bookings made directly with us. <strong>Peak Season rates are fixed</strong> and not eligible for this discount.</span></li>
-          <li><i class="fas fa-check-circle" aria-hidden="true"></i><span><strong>Occupancy:</strong> The above room rates are applicable for <strong>2 adults</strong>, or a family of <strong>2 adults with up to 2 children below 12 years of age</strong>.</span></li>
-          <li><i class="fas fa-check-circle" aria-hidden="true"></i><span><strong>Extra Person:</strong> An additional mattress is available at <strong>₹1,000 per person per night</strong>, subject to availability.</span></li>
-          <li><i class="fas fa-check-circle" aria-hidden="true"></i><span><strong>GST Charges:</strong> Room tariff up to <strong>₹7,500 per night</strong> attracts <strong>5% GST</strong>; room tariff above <strong>₹7,500 per night</strong> attracts <strong>18% GST</strong>.</span></li>
-          <li><i class="fas fa-check-circle" aria-hidden="true"></i><span><strong>Weekend &amp; Special Holiday Charges:</strong> An additional <strong>₹500 per room per night</strong> will be applicable on the regular room tariff during weekends and special holidays.</span></li>
-          <li><i class="fas fa-shield-alt" aria-hidden="true"></i><span><strong>Booking &amp; Cancellation Policy:</strong> A 50% advance payment is required to confirm reservation. Advance payment is non-refundable. One date change within the same season is permitted (season ending 31 May). <a onclick="showPage('terms')" style="color:var(--teal);text-decoration:underline;cursor:pointer;font-weight:600;">View our complete 18-clause Booking &amp; Cancellation Policy &rarr;</a></span></li>
-          <li><i class="fas fa-check-circle" aria-hidden="true"></i><span><strong>Check-in &amp; Check-out:</strong> Check-in is from <strong>12:00 PM</strong> and Check-out is before <strong>10:00 AM</strong>.</span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Season Tariff CTA -->
-  <section class="cta-section" aria-labelledby="tariff-cta-heading">
-    <div class="container">
-      <div class="cta-content reveal">
-        <span class="section-label" style="font-size:2.4rem">Lock In Your Rate</span>
-        <h2 class="cta-title" id="tariff-cta-heading">Reserve at Today's<br><em>Best Rate</em></h2>
-        <p class="cta-sub">Rates can change with demand and season — enquire now to confirm your room at the current tariff before you travel.</p>
-        <div class="cta-actions">
-          <a href="https://wa.me/919270318818?text=Hi%2C+I%27d+like+to+check+the+Season+Tariff+and+availability+at+Kamaxi+Beach+Resort." class="btn btn-gold" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i>Enquire on WhatsApp</a>
-          <button class="btn btn-outline" onclick="showPage('home');scrollToSection('rooms')"><i class="fas fa-bed" aria-hidden="true"></i>View All Rooms</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</div><!-- /page-tariff -->
 
 
 <!-- ===================================
@@ -3916,9 +2989,9 @@
           <li><a onclick="showPage('home');scrollToSection('rooms')">Rooms &amp; Cottages</a></li>
           <li><a onclick="showPage('home');scrollToSection('experience')">Experiences</a></li>
           <li><a onclick="showPage('home');scrollToSection('dining')">Dining &amp; Bar</a></li>
+          <!-- TODO: Gallery section was removed per client feedback; confirm where this link should point -->
           <li><a onclick="showPage('home');scrollToSection('gallery')">Photo Gallery</a></li>
           <li><a onclick="showPage('about')">Our Full Story</a></li>
-          <li><a onclick="showPage('tariff')">Season Tariff Card</a></li>
           <li><a onclick="showPage('directions')">Directions &amp; Taxis</a></li>
           <li><a onclick="showPage('terms')">Terms &amp; Cancellation Policy</a></li>
         </ul>
@@ -4009,7 +3082,7 @@
   function handleRouteFromHash() {
     const rawHash = (window.location.hash || '').replace('#', '').trim();
     if (!rawHash) { showPage('home', true); return; }
-    const validPages = ['home', 'about', 'tariff', 'directions', 'terms'];
+    const validPages = ['home', 'about', 'directions', 'terms'];
     if (validPages.includes(rawHash)) {
       showPage(rawHash, true);
     } else if (rawHash.startsWith('term-')) {
@@ -4232,41 +3305,6 @@
   }
 
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
-
-  /* =============================================
-     BOOKING DATE DEFAULTS
-  ============================================= */
-  (function () {
-    const today = new Date();
-    const tomorrow = new Date(today);
-    tomorrow.setDate(today.getDate() + 1);
-    const fmt = d => d.toISOString().split('T')[0];
-    const cin = document.getElementById('checkin');
-    const cout = document.getElementById('checkout');
-    if (!cin || !cout) return;
-    cin.value = fmt(today);
-    cout.value = fmt(tomorrow);
-    cin.min = fmt(today);
-    cin.addEventListener('change', () => {
-      const nm = new Date(cin.value);
-      nm.setDate(nm.getDate() + 1);
-      cout.min = fmt(nm);
-      if (new Date(cout.value) <= new Date(cin.value)) cout.value = fmt(nm);
-    });
-  })();
-
-  function handleBooking() {
-    const cin = document.getElementById('checkin').value;
-    const cout = document.getElementById('checkout').value;
-    const room = document.getElementById('room-select').value;
-    const guests = document.getElementById('guests-select').value;
-    const msg = encodeURIComponent(
-      `Hello! I'd like to check availability at Kamaxi Beach Resort.\n\n` +
-      `Room Type: ${room}\nGuests: ${guests}\nCheck-in: ${cin}\nCheck-out: ${cout}\n\n` +
-      `Please let me know availability and rates. Thank you!`
-    );
-    window.open(`https://wa.me/919270318818?text=${msg}`, '_blank');
-  }
 
   function bookRoom(name, price) {
     const msg = encodeURIComponent(
