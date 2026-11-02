@@ -1734,7 +1734,7 @@
         <li role="none"><a role="menuitem" onclick="showPage('directions')">Directions</a></li>
       </ul>
       <div class="nav-cta">
-        <a href="https://wa.me/919270318818" data-book class="btn btn-gold" style="padding:10px 22px;" target="_blank" rel="noopener"><i class="fas fa-calendar-check" aria-hidden="true"></i>Book Now</a>
+        <a href="https://asiatech.in/booking_engine/index3?token=MTE2MzA%3D" class="btn btn-gold" style="padding:10px 22px;" target="_blank" rel="noopener"><i class="fas fa-calendar-check" aria-hidden="true"></i>Book Now</a>
         <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -1750,7 +1750,7 @@
   <a onclick="showPage('home');scrollToSection('gallery');closeMobileMenu()">Gallery</a>
   <a onclick="showPage('about');closeMobileMenu()">About Us</a>
   <a onclick="showPage('directions');closeMobileMenu()">Directions</a>
-  <a class="mobile-menu-book" href="https://wa.me/919270318818" data-book target="_blank" rel="noopener"><i class="fas fa-calendar-check" aria-hidden="true"></i>Book Now</a>
+  <a class="mobile-menu-book" href="https://asiatech.in/booking_engine/index3?token=MTE2MzA%3D" target="_blank" rel="noopener"><i class="fas fa-calendar-check" aria-hidden="true"></i>Book Now</a>
   <div class="mobile-menu-footer">
     <a href="https://wa.me/919270318818" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
     <a href="https://instagram.com/kamaxi_beach_resort_official" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -1780,7 +1780,7 @@
       <span class="hero-tagline">Welcome to Kamaxi Beach Resort</span>
       <p class="hero-desc">Feel the tropical breeze, hear the waves, and let the peaceful serenity of Polem Beach — South Goa's most pristine shore — wash all your worries away.</p>
       <div class="hero-actions">
-        <a href="https://wa.me/919270318818" data-book class="btn btn-outline" target="_blank" rel="noopener"><i class="fas fa-calendar-check" aria-hidden="true"></i>Quick book</a>
+        <a href="https://asiatech.in/booking_engine/index3?token=MTE2MzA%3D" class="btn btn-outline" target="_blank" rel="noopener"><i class="fas fa-calendar-check" aria-hidden="true"></i>Quick book</a>
       </div>
     </div>
     <div class="scroll-indicator" aria-hidden="true">
@@ -2290,7 +2290,7 @@
         <h2 class="cta-title" id="cta-heading">Your Perfect<br><em>Goa Escape</em> Awaits</h2>
         <p class="cta-sub">Don't just dream about paradise — live it. Reserve your room today and let Kamaxi Beach Resort craft memories you'll cherish for a lifetime.</p>
         <div class="cta-actions">
-          <a href="https://wa.me/919270318818" data-book class="btn btn-gold" target="_blank" rel="noopener"><i class="fas fa-calendar-check" aria-hidden="true"></i>Book Now</a>
+          <a href="https://asiatech.in/booking_engine/index3?token=MTE2MzA%3D" class="btn btn-gold" target="_blank" rel="noopener"><i class="fas fa-calendar-check" aria-hidden="true"></i>Book Now</a>
           <a href="https://wa.me/919270318818?text=Hi%2C+I+have+an+enquiry+about+staying+at+Kamaxi+Beach+Resort%2C+Polem+Beach." class="btn btn-outline" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i>Send an Enquiry</a>
         </div>
       </div>
@@ -2385,7 +2385,7 @@
         <h2 class="cta-title" id="about-cta-heading">Ready to Experience <em>Kamaxi?</em></h2>
         <p class="cta-sub">Book your stay at Polem Beach and become part of the Kamaxi legacy — a place where nature, hospitality, and wellness unite.</p>
         <div class="cta-actions">
-          <a href="https://wa.me/919270318818" data-book class="btn btn-gold" target="_blank" rel="noopener"><i class="fas fa-calendar-check" aria-hidden="true"></i>Book Now</a>
+          <a href="https://asiatech.in/booking_engine/index3?token=MTE2MzA%3D" class="btn btn-gold" target="_blank" rel="noopener"><i class="fas fa-calendar-check" aria-hidden="true"></i>Book Now</a>
           <button class="btn btn-outline" onclick="showPage('home');scrollToSection('rooms')"><i class="fas fa-bed" aria-hidden="true"></i>View All Rooms</button>
         </div>
       </div>
@@ -3435,16 +3435,9 @@
 
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
-  // Asiatech booking engine link; while empty, Book Now falls back to WhatsApp
-  const BOOKING_URL = '';
-  if (BOOKING_URL) document.querySelectorAll('[data-book]').forEach(a => { a.href = BOOKING_URL; });
-
-  function bookRoom(name, price) {
-    if (BOOKING_URL) return window.open(BOOKING_URL, '_blank');
-    const msg = encodeURIComponent(
-      `Hello! I'm interested in booking the ${name} (${price}/night) at Kamaxi Beach Resort, Polem Beach, Goa.\n\nCould you please share availability and confirm the booking? Thank you!`
-    );
-    window.open(`https://wa.me/919270318818?text=${msg}`, '_blank');
+  // Room cards open the Asiatech booking engine
+  function bookRoom() {
+    window.open('https://asiatech.in/booking_engine/index3?token=MTE2MzA%3D', '_blank');
   }
 
   /* =============================================
