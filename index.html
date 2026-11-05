@@ -275,6 +275,23 @@
     .room-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
     .room-card:hover .room-img-wrap img { transform: scale(1.06); }
     .room-img-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(13,61,58,0.75) 100%); }
+    /* Room photo slideshow (swipe on phones, arrows on desktop) */
+    .rooms-grid > .room-card { min-width: 0; }
+    .room-slider { width: 100%; }
+    .room-slider .room-slides { display: flex; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+    .room-slider .room-slides::-webkit-scrollbar { display: none; }
+    .room-slider .room-slides img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; scroll-snap-align: start; transform: none !important; user-select: none; }
+    .room-slide-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 3; width: 40px; height: 40px; border-radius: 50%; border: none; background: rgba(255,255,255,0.88); color: var(--deep-teal); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 0.85rem; box-shadow: 0 2px 10px rgba(0,0,0,0.2); transition: opacity 0.2s ease; }
+    .room-slide-btn.prev { left: 12px; }
+    .room-slide-btn.next { right: 12px; }
+    .room-slide-btn:hover { background: #fff; }
+    .room-slide-btn[disabled] { opacity: 0; pointer-events: none; }
+    .room-slide-count { position: absolute; top: 16px; right: 16px; z-index: 3; background: rgba(0,0,0,0.55); color: #fff; font-size: 0.72rem; padding: 4px 10px; border-radius: 100px; letter-spacing: 0.04em; }
+    .room-slide-dots { position: absolute; bottom: 14px; left: 0; right: 0; z-index: 3; display: flex; justify-content: center; gap: 6px; pointer-events: none; }
+    .room-slide-dots span { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.55); transition: all 0.2s ease; }
+    .room-slide-dots span.on { background: #fff; width: 18px; border-radius: 4px; }
+    .room-slider .room-img-overlay { display: none; }
+    @media (hover: none) { .room-slide-btn { width: 34px; height: 34px; } }
     .room-body { padding: 28px; }
     .room-type { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; display: block; }
     .room-name { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400; color: var(--white); margin-bottom: 10px; line-height: 1.2; }
@@ -1851,9 +1868,18 @@
 
         <!-- Standard Room -->
         <div class="room-card reveal delay-1">
-          <div class="room-img-wrap">
-            <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Standard%20Room/WhatsApp%20Image%202026-04-10%20at%205.03.37%20PM%20(3).jpeg?w=800&q=80&auto=format&fit=crop" alt="Standard Room interior" loading="lazy"/>
-            <div class="room-img-overlay" aria-hidden="true"></div>
+          <div class="room-img-wrap room-slider" aria-roledescription="carousel" aria-label="Standard Room photos">
+            <div class="room-slides">
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Standard%20Room/WhatsApp%20Image%202026-04-10%20at%205.03.37%20PM%20(3).jpeg" alt="Standard Room photo 1 of 5" loading="lazy" draggable="false"/>
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Standard%20Room/WhatsApp%20Image%202026-04-10%20at%205.03.37%20PM.jpeg" alt="Standard Room photo 2 of 5" loading="lazy" draggable="false"/>
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Standard%20Room/WhatsApp%20Image%202026-04-10%20at%205.03.37%20PM%20(1).jpeg" alt="Standard Room photo 3 of 5" loading="lazy" draggable="false"/>
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Standard%20Room/WhatsApp%20Image%202026-04-10%20at%205.03.37%20PM%20(2).jpeg" alt="Standard Room photo 4 of 5" loading="lazy" draggable="false"/>
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Standard%20Room/WhatsApp%20Image%202026-04-10%20at%205.03.38%20PM.jpeg" alt="Standard Room photo 5 of 5" loading="lazy" draggable="false"/>
+            </div>
+            <button class="room-slide-btn prev" aria-label="Previous photo"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+            <button class="room-slide-btn next" aria-label="Next photo"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+            <div class="room-slide-count" aria-hidden="true"><i class="fas fa-images"></i> <span>1</span> / 5</div>
+            <div class="room-slide-dots" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span></div>
           </div>
           <div class="room-body">
             <span class="room-type">Category One</span>
@@ -1875,9 +1901,17 @@
         <!-- Deluxe Sea Facing Hut -->
         <div class="room-card featured reveal delay-2">
           <div class="room-badge">Most Popular</div>
-          <div class="room-img-wrap">
-            <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Deluxe%20Sea%20Facing%20Hut/WhatsApp%20Image%202026-04-10%20at%205.03.10%20PM.jpeg?w=800&q=80&auto=format&fit=crop" alt="Deluxe Sea Facing Hut with balcony view" loading="lazy"/>
-            <div class="room-img-overlay" aria-hidden="true"></div>
+          <div class="room-img-wrap room-slider" aria-roledescription="carousel" aria-label="Deluxe Sea Facing Hut photos">
+            <div class="room-slides">
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Deluxe%20Sea%20Facing%20Hut/WhatsApp%20Image%202026-04-10%20at%205.03.10%20PM.jpeg" alt="Deluxe Sea Facing Hut photo 1 of 4" loading="lazy" draggable="false"/>
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Deluxe%20Sea%20Facing%20Hut/WhatsApp%20Image%202026-04-10%20at%205.03.09%20PM.jpeg" alt="Deluxe Sea Facing Hut photo 2 of 4" loading="lazy" draggable="false"/>
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Deluxe%20Sea%20Facing%20Hut/WhatsApp%20Image%202026-04-10%20at%205.03.10%20PM%20(1).jpeg" alt="Deluxe Sea Facing Hut photo 3 of 4" loading="lazy" draggable="false"/>
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Deluxe%20Sea%20Facing%20Hut/WhatsApp%20Image%202026-04-10%20at%205.03.10%20PM%20(2).jpeg" alt="Deluxe Sea Facing Hut photo 4 of 4" loading="lazy" draggable="false"/>
+            </div>
+            <button class="room-slide-btn prev" aria-label="Previous photo"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+            <button class="room-slide-btn next" aria-label="Next photo"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+            <div class="room-slide-count" aria-hidden="true"><i class="fas fa-images"></i> <span>1</span> / 4</div>
+            <div class="room-slide-dots" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span></div>
           </div>
           <div class="room-body">
             <span class="room-type">Category Two</span>
@@ -1898,9 +1932,20 @@
 
         <!-- Super Deluxe Sea Facing -->
         <div class="room-card reveal delay-3">
-          <div class="room-img-wrap">
-            <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Super%20Deluxe%20Sea%20Facing/WhatsApp%20Image%202026-04-10%20at%205.00.44%20PM%20(1).jpeg?w=800&q=80&auto=format&fit=crop" alt="Super Deluxe Sea Facing room" loading="lazy"/>
-            <div class="room-img-overlay" aria-hidden="true"></div>
+          <div class="room-img-wrap room-slider" aria-roledescription="carousel" aria-label="Super Deluxe Sea Facing photos">
+            <div class="room-slides">
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Super%20Deluxe%20Sea%20Facing/WhatsApp%20Image%202026-04-10%20at%205.00.44%20PM%20(1).jpeg" alt="Super Deluxe Sea Facing photo 1 of 7" loading="lazy" draggable="false"/>
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Super%20Deluxe%20Sea%20Facing/WhatsApp%20Image%202026-04-10%20at%205.00.44%20PM.jpeg" alt="Super Deluxe Sea Facing photo 2 of 7" loading="lazy" draggable="false"/>
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Super%20Deluxe%20Sea%20Facing/WhatsApp%20Image%202026-04-10%20at%205.00.45%20PM.jpeg" alt="Super Deluxe Sea Facing photo 3 of 7" loading="lazy" draggable="false"/>
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Super%20Deluxe%20Sea%20Facing/WhatsApp%20Image%202026-04-10%20at%205.00.45%20PM%20(1).jpeg" alt="Super Deluxe Sea Facing photo 4 of 7" loading="lazy" draggable="false"/>
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Super%20Deluxe%20Sea%20Facing/WhatsApp%20Image%202026-04-10%20at%205.00.45%20PM%20(2).jpeg" alt="Super Deluxe Sea Facing photo 5 of 7" loading="lazy" draggable="false"/>
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Super%20Deluxe%20Sea%20Facing/WhatsApp%20Image%202026-04-10%20at%205.00.46%20PM.jpeg" alt="Super Deluxe Sea Facing photo 6 of 7" loading="lazy" draggable="false"/>
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Super%20Deluxe%20Sea%20Facing/WhatsApp%20Image%202026-04-12%20at%206.47.25%20PM.jpeg" alt="Super Deluxe Sea Facing photo 7 of 7" loading="lazy" draggable="false"/>
+            </div>
+            <button class="room-slide-btn prev" aria-label="Previous photo"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+            <button class="room-slide-btn next" aria-label="Next photo"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+            <div class="room-slide-count" aria-hidden="true"><i class="fas fa-images"></i> <span>1</span> / 7</div>
+            <div class="room-slide-dots" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
           </div>
           <div class="room-body">
             <span class="room-type">Category Three</span>
@@ -1922,9 +1967,23 @@
         <!-- Sea Facing Bungalow -->
         <div class="room-card reveal delay-4">
           <div class="room-badge" style="background:linear-gradient(135deg,#8B4513,#5D2E0C)">Premium</div>
-          <div class="room-img-wrap">
-            <img src="images/bungalow-room.jpg" alt="Sea Facing Bungalow room" loading="lazy"/>
-            <div class="room-img-overlay" aria-hidden="true"></div>
+          <div class="room-img-wrap room-slider" aria-roledescription="carousel" aria-label="Sea Facing Bungalow photos">
+            <div class="room-slides">
+              <img src="images/bungalow-room.jpg" alt="Sea Facing Bungalow photo 1 of 10" loading="lazy" draggable="false"/>
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Sea%20Facing%20Bungalow/WhatsApp%20Image%202026-04-10%20at%204.56.40%20PM.jpeg" alt="Sea Facing Bungalow photo 2 of 10" loading="lazy" draggable="false"/>
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Sea%20Facing%20Bungalow/WhatsApp%20Image%202026-04-10%20at%204.56.41%20PM%20(1).jpeg" alt="Sea Facing Bungalow photo 3 of 10" loading="lazy" draggable="false"/>
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Sea%20Facing%20Bungalow/WhatsApp%20Image%202026-04-10%20at%204.56.41%20PM.jpeg" alt="Sea Facing Bungalow photo 4 of 10" loading="lazy" draggable="false"/>
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Sea%20Facing%20Bungalow/WhatsApp%20Image%202026-04-10%20at%204.56.41%20PM%20(2).jpeg" alt="Sea Facing Bungalow photo 5 of 10" loading="lazy" draggable="false"/>
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Sea%20Facing%20Bungalow/WhatsApp%20Image%202026-04-10%20at%204.56.35%20PM.jpeg" alt="Sea Facing Bungalow photo 6 of 10" loading="lazy" draggable="false"/>
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Sea%20Facing%20Bungalow/WhatsApp%20Image%202026-04-10%20at%204.56.36%20PM.jpeg" alt="Sea Facing Bungalow photo 7 of 10" loading="lazy" draggable="false"/>
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Sea%20Facing%20Bungalow/WhatsApp%20Image%202026-04-10%20at%204.56.38%20PM.jpeg" alt="Sea Facing Bungalow photo 8 of 10" loading="lazy" draggable="false"/>
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Sea%20Facing%20Bungalow/WhatsApp%20Image%202026-04-10%20at%204.56.38%20PM%20(1).jpeg" alt="Sea Facing Bungalow photo 9 of 10" loading="lazy" draggable="false"/>
+              <img src="https://raw.githubusercontent.com/hunterrsec/Photos_Atul/refs/heads/main/Sea%20Facing%20Bungalow/WhatsApp%20Image%202026-04-10%20at%204.56.38%20PM%20(2).jpeg" alt="Sea Facing Bungalow photo 10 of 10" loading="lazy" draggable="false"/>
+            </div>
+            <button class="room-slide-btn prev" aria-label="Previous photo"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+            <button class="room-slide-btn next" aria-label="Next photo"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+            <div class="room-slide-count" aria-hidden="true"><i class="fas fa-images"></i> <span>1</span> / 10</div>
+            <div class="room-slide-dots" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
           </div>
           <div class="room-body">
             <span class="room-type">Category Four</span>
@@ -3148,6 +3207,30 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
   // Room cards open the Asiatech booking engine
+  // Room photo slideshows
+  document.querySelectorAll('.room-slider').forEach(sl => {
+    const track = sl.querySelector('.room-slides');
+    const n = track.children.length;
+    const prev = sl.querySelector('.prev'), next = sl.querySelector('.next');
+    const dots = sl.querySelectorAll('.room-slide-dots span');
+    const num = sl.querySelector('.room-slide-count span');
+    const idx = () => Math.round(track.scrollLeft / track.clientWidth);
+    const update = () => {
+      const i = idx();
+      dots.forEach((d, j) => d.classList.toggle('on', j === i));
+      num.textContent = i + 1;
+      prev.disabled = i === 0;
+      next.disabled = i === n - 1;
+    };
+    const go = i => track.scrollTo({ left: Math.max(0, Math.min(n - 1, i)) * track.clientWidth });
+    prev.addEventListener('click', () => go(idx() - 1));
+    next.addEventListener('click', () => go(idx() + 1));
+    track.addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+    sl.tabIndex = 0;
+    sl.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') go(idx() - 1); if (e.key === 'ArrowRight') go(idx() + 1); });
+    update();
+  });
+
   function bookRoom() {
     window.open('https://asiatech.in/booking_engine/index3?token=MTE2MzA%3D', '_blank');
   }
